@@ -28,6 +28,7 @@ import { CustomizeProductDetailComponent } from './customization/customize-produ
 import { CustomizingComponent } from './customization/customizing/customizing.component';
 import { AboutUsComponent } from './aboutus/aboutus.component';
 import { WorkshopComponent } from './workshop/workshop.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -61,6 +62,8 @@ const routes: Routes = [
   { path: 'customizing', component: CustomizingComponent },
   { path: 'aboutus', component: AboutUsComponent },
   { path: 'workshop', component: WorkshopComponent },
+  { path: 'blog', component: BlogComponent },
+
 ];
 
 @NgModule({
@@ -90,5 +93,6 @@ export const RoutingComponent = [
   InforComponent,
   ProfileComponent,
   SignupOtpComponent,
-  WorkshopComponent
+  WorkshopComponent,
+  BlogComponent
 ]
