@@ -13,13 +13,13 @@
 
 .title {
   font-size: 28px;
-  color: #2D982A;
+  color: #8AA3A0;
   font-weight: bold;
 }
 
 .content {
   padding: 0px 20px 10px 20px;
-  background: #E0F8E4;
+  background: #AECBC8;
   border-radius: 10px;
   width: 60%;
 }
@@ -40,7 +40,7 @@
   text-align: center;
   color: white;
   border-radius: 10px;
-  background-color: #52b54f;
+  background-color: #8AA3A0;
 }
 
 .content__order--infor {
@@ -109,7 +109,7 @@ td.total{
 
 .button_continue button {
   padding: 4px 40px;
-  background-color: #2D982A;
+  background-color: #8AA3A0;
   font-size: 20px;
   font-weight: bold;
   color: #fff;

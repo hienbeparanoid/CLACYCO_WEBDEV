@@ -14,8 +14,8 @@
           <h2 class="cart__top-header">
             Cart ({{ quantityItem }})
           </h2>
-
         </div>
+        <!--cart-->
         <div class="cart__main">
           <div class="cart__main-row">
             <p class="cart__main-row--product">
@@ -48,7 +48,7 @@
           <button (click)="returnCart()">Edit cart</button>
         </div>
       </div>
-
+      <!--Delivery information-->
       <div class="information">
         <div class="information__heading">Delivery information</div>
         <form class="information__detail">
@@ -84,6 +84,7 @@
           </div>
         </form>
       </div>
+      <!--Payment method-->
       <div class="information">
         <div class="information__heading">Payment method</div>
         <label class="information__row" for="COD" (click)="checkCOD()">
@@ -103,10 +104,11 @@
         </label>
       </div>
     </div>
+    <!--Order summary-->
     <div class="order">
       <div class="order__heading">
         <span class="material-icons-outlined">shopping_bag</span>
-        <span class="title-bag">Order</span>
+        <span class="title-bag">Order Summary</span>
       </div>
       <div class="order__row">
         <p class="order__row-left">
@@ -147,7 +149,7 @@
         <input type="text" placeholder="Nhập mã giảm giá" [(ngModel)]="discountCode" (input)="applyDiscountCode()">
       </div>
       <div class="order__row">
-        <p class="order__row-left bold">
+        <p class="order__row-left" bold style="color:black; font-weight:bold">
           Total price
         </p>
         <p class="order__row-right">
