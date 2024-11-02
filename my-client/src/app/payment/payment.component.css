@@ -42,7 +42,7 @@
 
 }
 .cart__top-header {
-  color: #000;
+  color: #8AA3A0;
   font-size: 30px;
   margin-bottom: 10px;
   display: flex;
@@ -83,6 +83,7 @@
 .cart__main {
   padding: 0 30px;
   border-radius: 10px;
+  border:2px solid #8AA3A0;
 
 }
 .cart__main-row {
@@ -90,6 +91,7 @@
   align-items: center;
   text-align: center;
   margin: 16px 0;
+  color: #8AA3A0;
 }
 .cart__main-row:nth-child(1) {
   font-weight: bold;
@@ -131,7 +133,7 @@
 }
 .order {
   flex-basis: 30%;
-  background-color: #E0F8E4;
+  background-color: #AECBC8;
   padding: 20px;
   border-radius: 20px;
   margin-left: 24px;
@@ -143,6 +145,7 @@
   font-size: 30px;
   font-weight: 500;
   align-items: center;
+  color: #000;
 }
 .title-bag{
   font-weight: 625;
@@ -154,6 +157,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 8px 0;
+  color: #000;
 }
 .order__row-discount {
   display: flex;
@@ -161,6 +165,7 @@
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 4px 0;
+  color: #3b847d;
 }
 .order__row-discount input {
   outline: none;
@@ -168,6 +173,8 @@
   padding: 4px;
   width: 100%;
   margin-left: 12px;
+  border-radius: 8px; /* Bo góc cho ô nhập text */
+  border: 1px solid #ccc; /* Thêm viền cho rõ */
 }
 .order__row span {
   margin-left: 16px;
@@ -187,13 +194,14 @@
 }
 
 .order__row-button button{
-  background-color: #8AA3A0;
+  background-color: #F4F5F6;
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: #8AA3A0;
   padding: 2px 24px;
   border-radius: 8px;
   border: none;
+  font-weight: bold;
 
 }
 .order__row-button button:hover {
@@ -207,10 +215,11 @@
   flex-basis: 70%;
 }
 .information {
-  background-color: #E0F8E4;
+  background-color: #fdfdfd;
   padding: 12px;
   margin-top: 16px;
   border-radius: 10px;
+  border:2px solid #8AA3A0; 
 }
 .information:last-child {
   margin-bottom: 36px;
@@ -219,6 +228,7 @@
   font-size: 22px;
   font-weight: 650;
   padding: 0 10px;
+  color: #8AA3A0;
 }
 .cart__top-header{
   margin-top: 10px;
@@ -232,14 +242,19 @@
   display: flex;
   align-items: center;
   margin: 16px 0;
+  margin-left: 60px;
 }
 .form__information-label {
   width: 30%;
+  color: #8AA3A0; 
+  font-weight: bold;
 }
 .form__information-input {
   width: 60%;
   display: flex;
   justify-content: space-between;
+  color: #8AA3A0;
+
 }
 .form__information-input select {
   width: 40%;
@@ -249,6 +264,8 @@
   width: 100%;
   padding: 6px;
   resize: none;
+  border-radius: 8px; /* Bo góc cho ô nhập text */
+  border: 1px solid #ccc; /* Thêm viền cho rõ */
 }
 .information__row {
   display: flex;
@@ -257,11 +274,35 @@
 }
 .information__row-input {
   margin-left: 80px;
+  appearance: none; /* Ẩn radio button mặc định */
+  width: 16px;
+  height: 16px;
+  border: 2px solid #8AA3A0; /* Đường viền mặc định */
+  border-radius: 50%; /* Bo tròn cho radio */
+  position: relative;
+  cursor: pointer;
+}
+.information__row-input:checked {
+  background-color: #8AA3A0; /* Màu khi radio button được chọn */
+  border-color: #8AA3A0;
+}
+.information__row-input:checked::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: #8AA3A0;
+  border-radius: 50%;
 }
 .information__row-info {
   margin-left: 24px;
+  color: #8AA3A0;
 }
-
+.information__row-input:checked + .information__row-info {
+  font-weight: bold;
+}
 .information__banking {
   display: flex;
   flex-wrap: wrap;
@@ -369,5 +410,6 @@ hr{
     flex-basis: 30%;
     margin-left: 24px;
   }
+  
 }
 
