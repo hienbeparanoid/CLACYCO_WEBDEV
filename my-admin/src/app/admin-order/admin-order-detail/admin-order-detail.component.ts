@@ -49,7 +49,7 @@ export class AdminOrderDetailComponent {
   }
 
   completeOrder() {
-    this.order.Status = "Hoàn thành";
+    this.order.Status = "Delivered";
     this._fs.updateOrderStatus(this.order).subscribe({
       next: (data) => {
         location.reload();
@@ -58,12 +58,12 @@ export class AdminOrderDetailComponent {
         this.errMessage = err;
       }
     });
-    alert('Cập nhật đơn hàng thành công')
+    alert('Order updated successfully')
     this.goBack()
   }
 
   deliveryOrder() {
-    this.order.Status = "Đang vận chuyển";
+    this.order.Status = "In transit";
     this._fs.updateOrderStatus(this.order).subscribe({
       next: (data) => {
         location.reload();
@@ -72,13 +72,13 @@ export class AdminOrderDetailComponent {
         this.errMessage = err;
       }
     });
-    alert('Cập nhật đơn hàng thành công')
+    alert('Order updated successfully')
     this.goBack()
   }
 
   cancelOrder() {
-    if (window.confirm('Bạn có chắc muốn hủy đơn hàng này?')) {
-      this.order.Status = "Huỷ"
+    if (window.confirm('Would you like to cancel this order?')) {
+      this.order.Status = "Cancel"
       this._fs.updateOrderStatus(this.order).subscribe({
         next: (data) => { location.reload() },
         error: (err) => { this.errMessage = err; }

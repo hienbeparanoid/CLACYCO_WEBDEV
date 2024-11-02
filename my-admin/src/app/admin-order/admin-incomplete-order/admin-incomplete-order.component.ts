@@ -36,7 +36,7 @@ export class AdminIncompleteOrderComponent {
   }
 
   orderConfirm(_id: any) {
-    if (window.confirm('Bạn có chắc muốn xác nhận đơn hàng này?')) {
+    if (window.confirm('Would you like to confirm this order?')) {
       this._service.getOrderConfirm(_id).subscribe({
         next: (data) => { location.reload()},
         error: (err) => { this.errMessage = err }
@@ -45,7 +45,7 @@ export class AdminIncompleteOrderComponent {
   }
 
   deleteOrder(_id: any) {
-    if (window.confirm('Bạn có chắc muốn xóa đơn hàng này?')) {
+    if (window.confirm('Would you like to delete this order?')) {
       this._service.deleteOrder(_id).subscribe({
         next: (data) => { location.reload()},
         error: (err) => { this.errMessage = err }
