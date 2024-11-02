@@ -91,4 +91,9 @@ export class FooterComponent {
   onScroll() {
     this.isFixed = window.scrollY > 320;
   }
+
+  // Method to show subscription alert
+  subscribeToNewsletter(): void {
+    alert('Subscription successful! Thank you for subscribing to our newsletter.');
+  }
 }

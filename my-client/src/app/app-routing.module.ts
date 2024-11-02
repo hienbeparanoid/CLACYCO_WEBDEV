@@ -27,6 +27,7 @@ import { CustomizeProductListComponent } from './customization/customize-product
 import { CustomizeProductDetailComponent } from './customization/customize-product-detail/customize-product-detail.component';
 import { CustomizingComponent } from './customization/customizing/customizing.component';
 import { AboutUsComponent } from './aboutus/aboutus.component';
+import { WorkshopComponent } from './workshop/workshop.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'customize-product-detail', component: CustomizeProductDetailComponent },
   { path: 'customizing', component: CustomizingComponent },
   { path: 'aboutus', component: AboutUsComponent },
+  { path: 'workshop', component: WorkshopComponent },
 ];
 
 @NgModule({
@@ -87,5 +89,6 @@ export const RoutingComponent = [
   SearchResultComponent,
   InforComponent,
   ProfileComponent,
-  SignupOtpComponent
+  SignupOtpComponent,
+  WorkshopComponent
 ]
