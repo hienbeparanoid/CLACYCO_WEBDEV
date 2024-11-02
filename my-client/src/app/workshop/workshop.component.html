@@ -6,11 +6,11 @@
       <div class='img'>
         <div class='flex-column-b'>
           <div class='name-input'>
-            <div class='flex-row'>
-              <span class='days'>DAYS</span>
-              <span class='hours'>HOURS</span>
-              <span class='minutes'>MINUTES</span>
-              <span class='seconds'>SECONDS</span>
+            <div class='flex-row' >
+              <span class='days' style="color:black">DAYS</span>
+              <span class='hours' style="color:black">HOURS</span>
+              <span class='minutes' style="color:black">MINUTES</span>
+              <span class='seconds' style="color:black">SECONDS</span>
             </div>
             <div class="flex-row-fb">
                 <div class="khung">
@@ -26,26 +26,65 @@
                   <span class="number-08" id="seconds">08</span> <!-- Seconds -->
                 </div>
               </div>                            
-            <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
-              <div class="form-group">
-                <input #fullNameInput type="text" id="full-name" name="full-name" class="rectangle-16" placeholder="Full Name" required />
-              </div>
-              <div class="form-group">
-                <input type="email" id="email" name="email" class="rectangle-17" placeholder="Email" required />
-              </div>
+              <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+                <div class="form-group">
+                  <input 
+                    #fullNameInput="ngModel"
+                    type="text" 
+                    id="full-name" 
+                    name="full-name" 
+                    class="rectangle-16" 
+                    placeholder="Full Name" 
+                    required 
+                    ngModel />
+                  <div *ngIf="fullNameInput.invalid && fullNameInput.touched" class="error-message">
+                    Please enter your full name.
+                  </div>
+                </div>
               
-              <div class="form-group">
-                <input type="tel" id="phone" name="phone" class="phone" placeholder="Phone" required />
-              </div>
+                <div class="form-group">
+                  <input 
+                    #emailInput="ngModel"
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    class="rectangle-17" 
+                    placeholder="Email" 
+                    required 
+                    ngModel 
+                    pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" 
+                    title="Please enter a valid email with gmail.com domain." />
+                  <div *ngIf="emailInput.invalid && emailInput.touched" class="error-message">
+                    Please enter a valid email with gmail.com domain.
+                  </div>
+                </div>
               
-              <!-- Nút "SEND" là nút submit -->
-              <button type="submit" class="label-send">
-                <span class="dont-miss-out">SEND</span>
-              </button>
-            </form>            
+                <div class="form-group">
+                  <input 
+                    #phoneInput="ngModel"
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="phone" 
+                    placeholder="Phone" 
+                    required 
+                    ngModel 
+                    pattern="^[0-9]{10}$" 
+                    title="Please enter a valid 10-digit phone number." />
+                  <div *ngIf="phoneInput.invalid && phoneInput.touched" class="error-message">
+                    Please enter a valid 10-digit phone number.
+                  </div>
+                </div>
+              
+                <button type="submit" class="label-send">
+                  <span class="dont-miss-out">SEND</span>
+                </button>
+              </form>
+              
+              
             
           </div>
-          <span class='flex-column'>
+          <span class='flex-column' style="color:black">
             Don’t Miss Out! <br />
             Grab Your Exclusive Offer Now!
           </span>
@@ -66,158 +105,70 @@
         </div>
       </div>
       <!--About our workshop-->
-      <div class='img-icicle-inspirations'>
-        <span class='spring-into-clay'>
-          About <br />
-          our workshops
-        </span>
-        <div class='frame-19'></div>
-        <span class='summer-hues-in-bloom'>
-          At Clayco, our workshops are where creativity meets craftsmanship,
-          offering a hands-on experience that allows you to explore the art of
-          pottery while connecting with nature. Over the past year, we’ve
-          successfully hosted three seasonal workshops, each designed to capture
-          the essence of its time of year and inspire our participants. <br />
-          <br />
-          With more than 200 pottery enthusiasts joining us so far, our
-          workshops have sparked creativity and resulted in over 300 unique
-          ceramic pieces. Whether you're a beginner or a seasoned potter, our
-          workshops are tailored to guide you through every step of the process,
-          from shaping the clay to adding the finishing touches. <br /> <br />
-          Coming up this winter, we’re excited to present Icicle Inspirations:
-          Crafting Winter in Clay. This special workshop will guide you through
-          creating winter-themed ceramics, drawing inspiration from the beauty
-          of frost and snow. Join us in capturing the magic of the season and
-          transforming clay into something truly unique. <br /> <br />
-          Sign up today to secure your spot and let your creativity shine!
-        </span>
+      <div class="img-icicle-inspirations">
+        <div class="image-container">
+          <div class="left-image">
+            <img src="assets/images/download.jpg" alt="Download Image">
+          </div>
+          <div class="right-images">
+            <img src="assets/images/xmastree.jpg" alt="Xmas Tree Image">
+            <img src="assets/images/dish.jpg" alt="Dish Image">
+          </div>
+        </div>
+        <div class="text-container">
+          <span class="spring-into-clay" style="color:black; text-align:left">
+            About our workshops
+          </span>
+          <span class="summer-hues-in-bloom">
+            <p style="text-align: justify;color:black; line-height: 1.6;">
+              At Clayco, our workshops blend creativity and craftsmanship, inviting you to explore pottery inspired by nature’s beauty. Over the past year, we’ve hosted three seasonal workshops, bringing together over 200 pottery enthusiasts and resulting in 300 unique pieces. Each workshop is crafted to capture the essence of the season, guiding beginners and experts alike through every step, from molding clay to perfecting details.
+              <br><br>
+              This winter, join us for <em>Icicle Inspirations</em>, where we’ll transform clay into winter-inspired art, capturing the beauty of frost and snow. Reserve your spot today and let your creativity shine!
+            </p>
+          </span>
+        </div>
       </div>
+      
+      
       <!--Spring workshop-->
       <div class='explore-pottery-creation'>
         <div class='creative-relaxing-space'></div>
         <span class='vibrant-personalized-pottery'>
-          Spring into Clay: <br />
-          Pottery Workshop
+          Spring into Clay: Pottery Workshop
         </span>
-        <span class='attendees-learned'>
-          "Spring into Clay: Pottery Workshop" hosted by Clayco was a delightful
-          event where participants got hands-on experience crafting pottery
-          inspired by the freshness of spring. Attendees explored various
-          pottery techniques, from shaping clay to decorating their pieces with
-          vibrant floral and seasonal motifs. The workshop provided a perfect
-          blend of creativity and relaxation, allowing everyone to express their
-          artistic side while enjoying a welcoming and fun atmosphere. It was a
-          wonderful opportunity for both beginners and experienced potters to
-          create unique spring-inspired masterpieces!
+        <span class='attendees-learned' style="line-height: 1.6;">
+          "Spring into Clay: Pottery Workshop," hosted by Clayco, was a truly enchanting experience that invited participants to immerse themselves in the art of pottery inspired by the vitality of spring. From hands-on clay shaping to adding vibrant floral and seasonal motifs, attendees explored a range of techniques, each step sparking creativity and joy. The workshop’s relaxed, welcoming atmosphere offered a perfect escape, where both beginners and seasoned potters could unwind, connect, and bring their spring-inspired visions to life. It was more than just a workshop—it was a journey into creativity, nature, and self-expression!
         </span>
       </div>
+
       <!--Summer workshop-->
-      <div class='cozy-environment'>
-        <span class='summer-hues-in-bloom-workshop'>
-          "Summer Hues in Bloom"
-        </span>
-        <div class='flex-row-c-1a'></div>
-        <div class='flex-row-1b'>
-          <span class='leaf'>
-            Summer Hues in Bloom #1
-          </span>
-          <span class='frame-1c'>
-             Summer Hues in Bloom #2
-          </span>
-          <span class='leaf-1d'>
-            Summer Hues in Bloom #3
-          </span>
-        </div>
-        <div class='summer-hues-in-bloom-text'>
-          <span class='text-24'>
-            Attendees learned how to mold clay, form unique shapes, and add
-            personal decorative touches, transforming each piece into a
-            one-of-a-kind work of art.
-          </span>
-          <span class='text-25'>
-            The cozy environment encouraged relaxation and creativity, allowing
-            everyone to fully focus on their craft while connecting with others.
-            It was a memorable experience that brought together people with a
-            shared passion for art.
-          </span>
-          <span class='text-26'>
-            By the end of the workshop, everyone proudly took home their own
-            vibrant creations, each reflecting the lively energy of summer.
-            Participants left with not only beautiful ceramic pieces but also a
-            sense of accomplishment and joy from the creative process.
-          </span>
-        </div>
-        <span class='text-27'>
-          The "Summer Hues in Bloom" workshop recently transformed our cozy
-          indoor studio into a vibrant haven of creativity, where participants
-          embarked on an artistic adventure inspired by the lively colors of
-          summer. Guided by skilled artisans, attendees didn't just learn the
-          basics of pottery-making—they infused their own personality and flair
-          into each piece, shaping and decorating clay with bold hues and
-          intricate patterns that echoed the energy of the season.The studio,
-          bathed in natural light and filled with artistic touches, created the
-          perfect atmosphere for focused creativity and relaxation. Laughter and
-          inspiration flowed as participants molded clay on the wheel, letting
-          their imaginations bloom with every stroke of color.By the end of
-          the workshop, everyone walked away with a truly one-of-a-kind pottery
-          creation—each piece a vibrant reflection of summer’s beauty. More than
-          just a workshop, "Summer Hues in Bloom" was a joyful escape, where
-          creativity thrived, connections blossomed, and summer’s colorful
-          spirit came to life in every corner of the studio.
-        </span>
-        <div class='box-b'>
-          <div class='pic-d'></div>
+      <div class='cozy-environment' >
+        <div class='box-b' >
           <div class='wrapper-6'>
-            <div class='img-7'></div>
-            <span class='text-28'>"Summer Hues in Bloom"</span>
-            <div class='img-8'></div>
+            <span class='text-28' style="color:black">"Summer Hues in Bloom"</span>
             <div class='flex-row-f'>
               <div class='n'></div>
               <div class='n-1e'></div>
               <div class='n-1f'></div>
             </div>
             <div class='flex-row-b'>
-              <span class='attendees-learned-pottery-making'>
-                Attendees learned how to mold clay, form unique shapes, and add
-                personal decorative touches, transforming each piece into a
-                one-of-a-kind work of art.
+              <span class='attendees-learned-pottery-making' style="color:black">
+                Attendees crafted unique pottery, learning how to mold, shape, and add personal touches that turned each piece into a true work of art.
               </span>
-              <span class='cozy-environment-creativity'>
-                The cozy environment encouraged relaxation and creativity,
-                allowing everyone to fully focus on their craft while connecting
-                with others. It was a memorable experience that brought together
-                people with a shared passion for art.
+              <span class='cozy-environment-creativity' style="color:black">
+                The warm, welcoming atmosphere fostered creativity and connection, making it an unforgettable experience for art lovers.
               </span>
-              <span class='proudly-took-home-creations'>
-                By the end of the workshop, everyone proudly took home their own
-                vibrant creations, each reflecting the lively energy of summer.
-                Participants left with not only beautiful ceramic pieces but
-                also a sense of accomplishment and joy from the creative
-                process.
+              <span class='proudly-took-home-creations' style="color:black">
+                By the end, everyone proudly took home their vibrant summer-inspired creations, filled with a sense of accomplishment and joy.
               </span>
             </div>
-            <span class='summer-hues-in-bloom-23'>
-              The "Summer Hues in Bloom" workshop recently transformed our cozy
-              indoor studio into a vibrant haven of creativity, where
-              participants embarked on an artistic adventure inspired by the
-              lively colors of summer. Guided by skilled artisans, attendees
-              didn't just learn the basics of pottery-making—they infused their
-              own personality and flair into each piece, shaping and decorating
-              clay with bold hues and intricate patterns that echoed the energy
-              of the season.The studio, bathed in natural light and filled
-              with artistic touches, created the perfect atmosphere for focused
-              creativity and relaxation. Laughter and inspiration flowed as
-              participants molded clay on the wheel, letting their imaginations
-              bloom with every stroke of color.By the end of the workshop,
-              everyone walked away with a truly one-of-a-kind pottery
-              creation—each piece a vibrant reflection of summer’s beauty. More
-              than just a workshop, "Summer Hues in Bloom" was a joyful escape,
-              where creativity thrived, connections blossomed, and summer’s
-              colorful spirit came to life in every corner of the studio.
+            <span class="summer-hues-in-bloom-23" style="line-height: 1.6; text-align: center; background-color: white; padding: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 8px;">
+              "Summer Hues in Bloom" transformed our studio into a haven of color and creativity. Guided by skilled artisans, participants crafted pottery infused with personal flair, bold colors, and intricate patterns. With natural light filling the space, laughter and inspiration flowed as imaginations bloomed. Each one-of-a-kind piece captured the spirit of summer, making the workshop a joyful escape where creativity and connections blossomed.
             </span>
           </div>
         </div>
       </div>
+
       <div class='flex-row-ad'>
         <div class='n-24'></div>
         <span class='harvest-creations-pottery-autumn'>
@@ -225,17 +176,8 @@
           Pottery in Autumn"
         </span>
         <div class='rectangle-25'></div>
-        <span class='harvest-creations-pottery-autumn-success'>
-          "Harvest Creations: Pottery in Autumn" was a fantastic success, with
-          over 50 participants coming together to celebrate the beauty of the
-          fall season through pottery. Hosted by Clayco, the workshop provided a
-          warm and creative space for attendees to craft their own
-          autumn-inspired pieces. With vibrant autumn leaves, pumpkins, and
-          harvest motifs guiding the designs, more than 70 unique pottery items
-          were made—each one capturing the essence of the season. The energy and
-          enthusiasm of the participants filled the room, making it not only a
-          productive event but a memorable artistic experience for everyone
-          involved.
+        <span class='harvest-creations-pottery-autumn-success' style="line-height: 1.6;">
+          "Harvest Creations: Pottery in Autumn" brought together over 50 participants to celebrate fall’s beauty through pottery. Hosted by Clayco, the workshop offered a warm, creative space where attendees crafted over 70 unique pieces inspired by autumn leaves, pumpkins, and harvest motifs. The event was filled with energy and enthusiasm, making it a memorable artistic experience for all.
         </span>
         <div class='rectangle-26'>
           <div class='n-27'></div>
@@ -247,7 +189,7 @@
       </div>
       <div class='flower-pot'></div>
       <span class='recap-harvest-creations-pottery-autumn'>
-        RECAP <br/> "Harvest Creations: Pottery in Autumn"
+        Recap of Harvest Creations: Pottery in Autumn"
       </span>
       <div class='flex-row-ec'>
         <div class='n-28'></div>
@@ -279,11 +221,13 @@
           <span class="register-now">REGISTER NOW</span>
         </button>        
       </div>
+
       <!--Thông tin workshop mùa đông-->
       <div class='frame-2e'>
         <div class='workshop-lam-gom'></div>
         <span class='icicle-inspirations-winter-crafting-2f'>
-          INCICLE INSPIRATIONS:CRAFTING WINTER IN CLAY
+          INCICLE INSPIRATIONS:
+          <BR> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CRAFTING WINTER IN CLAY
         </span>
         <span class='workshop-description'>
           “This workshop invites you to unleash your creativity, drawing
@@ -307,9 +251,13 @@
         <span class='participants-number'>Number of participants</span>
         <span class='participants-range'>From 60 to 80 participants.</span>
         <span class='activities-list'>
-          - Basic Pottery Guidance.- Shaping and Decorating.- Painting and
-          Glazing.- Photo Session with Your Creations.
+          Basic Pottery Guidance. Shaping and Decorating. Painting and
+          Glazing. Photo Session with Your Creations.
         </span>
+      </div>
+
+      <div class="revieww">
+        
       </div>
       <span class='review'>REVIEW</span>
       <span class='testimonials'>
@@ -326,18 +274,12 @@
         </div>
         <div class='testimonial-56'>
           <span class='testimonial-57'>
-            "Clayco’s workshop was an amazing experience! I had never worked
-            with clay before, but the instructors made everything so fun and
-            easy to follow. I walked away with a beautiful piece of pottery and
-            a new hobby!"
+            "The workshop was a perfect blend of learning and creativity! The instructors were patient and knowledgeable, making sure everyone felt comfortable at every step. I left with not only a wonderful pottery piece but also a newfound passion for clay art!"
           </span>
         </div>
         <div class='inverted-commas'>
           <span class='inverted-commas-58'>
-            "Clayco’s workshop was an amazing experience! I had never worked
-            with clay before, but the instructors made everything so fun and
-            easy to follow. I walked away with a beautiful piece of pottery and
-            a new hobby!"
+            "Clayco’s workshop was beyond my expectations! The cozy environment and supportive guidance made it easy to try new techniques. I loved how each of us could personalize our work and create something truly unique. Can’t wait to join another session!"
           </span>
         </div>
       </div>
