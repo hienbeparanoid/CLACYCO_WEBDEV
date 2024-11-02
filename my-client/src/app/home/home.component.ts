@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { CosmeticService } from '../SERVICES/cosmetic.service';
 
@@ -100,13 +100,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   scrollToNextSection() {
-    window.scrollBy({
-      top: window.innerHeight,
+    const sectionPosition = document.getElementById('listproduct')?.offsetTop || 0;
+    const offset = 20; // Adjust this offset if needed
+
+    window.scrollTo({
+      top: sectionPosition - offset,
       behavior: 'smooth'
     });
-    // Ẩn mũi tên sau khi cuộn
+
+    // Hide the arrow after scrolling
     const arrow = this.scrollArrow.nativeElement;
     this.renderer.addClass(arrow, 'hide-arrow');
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const arrow = this.scrollArrow.nativeElement;
+
+    // Show the arrow only if we are at the top of the page
+    if (window.scrollY === 0) {
+      this.renderer.removeClass(arrow, 'hide-arrow');
+    } else {
+      this.renderer.addClass(arrow, 'hide-arrow');
+    }
   }
 
   getRandomCosmetics(numRandomCosmetics: number, sourceCosmetics: any[] | undefined = this.cosmetics) {

@@ -151,3 +151,27 @@
     font-size: 13px;
     transition: opacity 0.3s ease;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center; /* Centers the button vertically if applied to a larger container */
+    height: 400px; /* Full viewport height if needed to center vertically */
+  }
+  
+  .custom-button {
+    background-color: black; /* Button background color */
+    color: white; /* Text color */
+    font-size: 18px; /* Font size */
+    padding: 12px 24px; /* Button padding */
+    border: none; /* Removes default border */
+    border-radius: 20px; /* Rounds the button corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling */
+  }
+  
+  .custom-button:hover {
+    transform: scale(1.1); /* Increases the button size on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect on hover */
+  }
+  
