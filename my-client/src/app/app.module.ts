@@ -32,6 +32,7 @@ import { CustomizationComponent } from './customization/customization.component'
 import { CustomizeProductListComponent } from './customization/customize-product-list/customize-product-list.component';
 import { CustomizeProductDetailComponent } from './customization/customize-product-detail/customize-product-detail.component';
 import { AboutUsComponent } from './aboutus/aboutus.component';
+import { WorkshopComponent } from './workshop/workshop.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AboutUsComponent } from './aboutus/aboutus.component';
     CustomizationComponent,
     CustomizeProductListComponent,
     CustomizeProductDetailComponent,
+    WorkshopComponent,
     
   ],
   imports: [
