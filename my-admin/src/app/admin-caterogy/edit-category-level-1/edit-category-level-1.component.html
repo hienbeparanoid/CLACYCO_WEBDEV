@@ -30,11 +30,6 @@
             </div>
             <p>Edit category</p>
             <div class="content__box">
-                <label for="myFile">Image:
-                    <input type="file" class="file-input" (change)="onFileSelected($event, category)" #fileUpload name="image"
-                      [(ngModel)]="category.Image"><br>
-                    <img src="{{category.Image}}" width="600">
-                  </label>
                 <label for="nameAdd">Category's name:
                     <input type="text" class="form-control" id="nameAdd" [(ngModel)]="category.Name">
                 </label>

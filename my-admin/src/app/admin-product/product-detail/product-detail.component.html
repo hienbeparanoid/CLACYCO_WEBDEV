@@ -58,16 +58,16 @@
           </label>
         </div>
         <div class="content_right">
-          <label for="use">Usage:
+          <label for="useCustomize">Customizable:
             <div>
-              <input type="text" class="form-control" name="use" id="use"
-                [(ngModel)]="cosmetic.Uses" readonly />
+              <input type="text" class="form-control" name="customizable" id="customizable"
+                [(ngModel)]="cosmetic.Customizable" readonly />
             </div>
           </label>
-          <label for="ingredient">Thành phần:
+          <label for="originEdit">Origin:
             <div>
-              <input type="text" class="form-control" name="ingredient" id="ingredient"
-                [(ngModel)]="cosmetic.Ingredients" readonly />
+              <input type="text" class="form-control" name="originEdit" id="originEdit"
+                [(ngModel)]="cosmetic.Origin" readonly/>
             </div>
           </label>
           <label for="description">Description:
@@ -76,16 +76,11 @@
                 [(ngModel)]="cosmetic.Description" readonly></textarea>
             </div>
           </label>
-          <label for="warning">Usage notes:
+          <label for="preserveEdit">Storage Instructions:
             <div>
-              <textarea type="text" class="form-control" name="warning" id="warning"
-                [(ngModel)]="cosmetic.Warnings" readonly></textarea>
-            </div>
-          </label>
-          <label for="preserve">Storage Instructions:
-            <div>
-              <input type="text" class="form-control" name="preserve" id="preserve"
-                [(ngModel)]="cosmetic.Store" readonly />
+              <textarea type="text" class="form-control" #name="ngModel" name="preserveEdit" id="preserveEdit"
+                [(ngModel)]="cosmetic.Store">
+              </textarea>
             </div>
           </label>
         </div>

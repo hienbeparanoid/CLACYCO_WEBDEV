@@ -118,10 +118,10 @@
     padding: 5px;
 }
 .table_content tr:nth-child(even){
-    background-color: #dcf4db
+    background-color: #d5e8e5
 }
 .table_content tr:nth-child(even):hover{
-    background-color: #f3fccf
+    background-color: #e6f3f1
 }
 .pro_image img{
     height: 40px;

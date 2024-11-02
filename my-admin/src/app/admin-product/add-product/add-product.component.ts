@@ -62,7 +62,7 @@ export class AddProductComponent {
     this._service.postCosmetic(this.cosmetic).subscribe({
       next: (data) => {
         this.cosmetic = data;
-        alert('Thêm sản phẩm thành công!');
+        alert('Add product successfully!');
         this.goBack();
       },
       error: (err) => {
