@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./infor.component.css']
 })
 export class InforComponent implements OnInit {
-  id: string = 'brandstory';
+  id: string = 'FAQs'; // Set FAQs as default
   selectedListItem: HTMLElement | null = null;
 
   faqs = [
@@ -75,7 +75,7 @@ export class InforComponent implements OnInit {
   
 
   ngOnInit() {
-    this.id = 'brandstory';
+    this.id = 'FAQs'; // Set the default to FAQs when the component initializes
   }
 
   tabChange(ids: string, event?: Event) {
