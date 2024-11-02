@@ -27,7 +27,7 @@ button {
 .main-container {
   position: relative;
   width: 1440px;
-  height: 5950px;
+  height: 5400px;
   margin: 0 auto;
   background: #ffffff;
   overflow: hidden;
@@ -441,13 +441,17 @@ button {
 .img {
   position: relative;
   width: 1441px;
-  height: 729px;
-  margin: 30px 0 0 0;
-  background: url(../../assets/images/nenform.png)
-    no-repeat center;
+  height: 690px;
+  margin-top: 10px ;
+  margin-bottom: 20px ;
+  border-radius: 30px;;
+
+  background: url(../../assets/images/xmasdish.jpg) no-repeat center;
   background-size: cover;
   z-index: 20;
 }
+
+
 .flex-column-b {
   position: absolute;
   width: 425px;
@@ -558,7 +562,7 @@ button {
   height: 64px;
   top: 0;
   left: 0;
-  background-color: #1F7167;
+  background-color: black;
   background-size: cover;
   z-index: 30;
   border-radius: 8px;
@@ -587,7 +591,7 @@ button {
   height: 64px;
   top: 0;
   left: 139px;
-  background-color: #1F7167;
+  background-color: black;
   background-size: cover;
   z-index: 32;
   border-radius: 8px;
@@ -616,7 +620,7 @@ button {
   height: 64px;
   top: 0;
   left: 209px;
-  background-color: #1F7167;
+  background-color: black;
   background-size: cover;
   z-index: 33;
   border-radius: 8px;
@@ -645,7 +649,7 @@ button {
   height: 64px;
   top: 1px;
   left: 70px;
-  background-color: #1F7167;
+  background-color: black;
   background-size: cover;
   z-index: 31;
   border-radius: 8px;
@@ -673,61 +677,14 @@ button {
 .contact-form input[type="tel"] {
   padding-left: 20px; /* Đẩy placeholder qua phải 10px */
 }
-
-.rectangle-16 {
-  position: relative;
-  width: 342px;
-  height: 50px;
-  margin: 31px 0 0 24px;
-  background: #ffffff;
-  border: 1px solid #d9d9d9;
-  z-index: 41;
-  border-radius: 5px;
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 26px
 }
-.full-name {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  height: 11px;
-  top: 19px;
-  left: 20px;
-  color: #858080;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 11px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 41;
-}
-.rectangle-17 {
-  position: relative;
-  width: 342px;
-  height: 50px;
-  margin: 10px 0 0 24px;
-  background: #ffffff;
-  border: 1px solid #d9d9d9;
-  z-index: 42;
-  border-radius: 5px;
-}
-.email {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  position: absolute;
-  height: 11px;
-  top: 19px;
-  left: 20px;
-  color: #858080;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 11px;
-  text-align: left;
-  white-space: nowrap;
-  z-index: 42;
-}
+.rectangle-16,
+.rectangle-17,
 .phone {
   position: relative;
   width: 342px;
@@ -735,9 +692,30 @@ button {
   margin: 10px 0 0 24px;
   background: #ffffff;
   border: 1px solid #d9d9d9;
-  z-index: 43;
   border-radius: 5px;
+  transition: all 0.3s ease; /* Hiệu ứng mượt khi thay đổi */
 }
+
+.rectangle-16:focus-within,
+.rectangle-17:focus-within,
+.phone:focus-within {
+  border-color: #4a90e2; /* Đổi màu viền khi focus */
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5); /* Thêm đổ bóng */
+  background-color: #f0f8ff; /* Thay đổi màu nền nhẹ */
+}
+
+/* Style for the placeholder text (optional) */
+.full-name,
+.email {
+  color: #858080;
+  transition: color 0.3s ease;
+}
+
+.rectangle-16:focus-within .full-name,
+.rectangle-17:focus-within .email {
+  color: #4a90e2; /* Đổi màu chữ placeholder khi focus */
+}
+
 .button {
   display: flex;
   align-items: flex-start;
@@ -766,9 +744,9 @@ button {
   height: 43px;
   margin: 18px 0 0 108px;
   padding: 20px 32px 20px 32px;
-  background: #1e7167;
+  background: BLACK;
   z-index: 44;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 .dont-miss-out {
   display: flex;
@@ -805,15 +783,33 @@ button {
   text-align: center;
   z-index: 25;
 }
+.img-icicle-inspirations {
+  position: relative;
+  width: 1444px;
+  height: 400px;
+  margin-bottom: 50px;
+  background: WHITE;
+  z-index: 13;
+  overflow: visible;
+}
+
 .icicle-inspirations {
   position: absolute;
   width: 512px;
-  height: 275px;
+  height: 320px;
   top: 196px;
   left: 186px;
-  font-size: 0px;
   z-index: 46;
+
+  /* Glassmorphism styling */
+  background: rgba(196, 179, 179, 0.2); /* Nền trắng mờ */
+  backdrop-filter: blur(10px); /* Hiệu ứng làm mờ */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Viền trắng mờ */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+  padding: 20px;
 }
+
 .icicle-inspirations-text {
   display: flex;
   align-items: center;
@@ -821,8 +817,7 @@ button {
   position: relative;
   width: 512px;
   height: 98px;
-  margin: 0 0 0 0;
-  color: #bce5e0;
+  color:BLACK;
   font-family: Montserrat, var(--default-font-family);
   font-size: 40px;
   font-weight: 700;
@@ -830,14 +825,15 @@ button {
   text-align: left;
   z-index: 23;
 }
+
 .register-button {
   display: flex;
   align-items: flex-start;
   position: relative;
   width: 431px;
   height: 99px;
-  margin: 21px 0 0 5px;
-  color: #ffffff;
+  color:WHITE;
+  margin-top:20px;
   font-family: Montserrat, var(--default-font-family);
   font-size: 16px;
   font-weight: 400;
@@ -845,128 +841,134 @@ button {
   text-align: justify;
   z-index: 22;
 }
+
 .about-our-workshops {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  gap: 10px;
+  gap: 20px;
   position: relative;
   width: 148px;
   height: 36px;
-  margin: 21px 0 0 5px;
-  padding: 20px 32px 20px 32px;
-  background: #8aa3a0;
+  margin: 30px 0 0 0;
+  padding: 20px 32px;
+  background: black;
+  border-radius: 20px;
   z-index: 46;
-  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển đổi mượt */
 }
+
+.about-our-workshops:hover {
+  transform: scale(1.1); /* Phóng to button khi hover */
+}
+
 .line-18 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  width: 93px;
-  height: 24px;
   color: #ffffff;
   font-family: Montserrat, var(--default-font-family);
   font-size: 18px;
   font-weight: 700;
-  line-height: 24px;
   text-align: center;
   white-space: nowrap;
   z-index: 47;
 }
+
 .img-icicle-inspirations {
-  position: relative;
-  width: 1444px;
-  height: 600px;
-  margin: 0 0 0 0px;
-  font-size: 0px;
-  background: #5e5e5e;
-  z-index: 13;
-  overflow: visible;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
 }
-.spring-into-clay {
-  padding-top: 25px;
+
+.image-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 466px;
-  height: 98px;
-  margin: 0px 0 0 496px;
+  gap: 20px;
+}
+
+.left-image img {
+  width: 310px; /* Chiều rộng cố định cho hình download.jpg */
+  height: auto;
+  border-radius: 10px;
+}
+
+.right-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px; /* Tổng chiều rộng bằng với chiều rộng của hình download.jpg */
+}
+
+.right-images img {
+  width: 100%; /* Mỗi hình chiếm toàn bộ chiều rộng của right-images */
+  height: auto;
+  border-radius: 10px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: justify;
+  width: 60%;
+  padding-left: 20px;
+}
+
+.spring-into-clay {
+  padding-top: 25px;
   color: #bfd8d5;
   font-family: Montserrat, var(--default-font-family);
   font-size: 40px;
   font-weight: 800;
   line-height: 48.76px;
-  text-align: center;
-  text-overflow: initial;
-  z-index: 14;
-  overflow: hidden;
+  text-align: right;
+  margin-bottom: 20px;
 }
 
-.frame-19 {
-  position: relative;
-  width: 195px;
-  height: 1.017px;
-  margin: 50px 0 0 631px;
-  background: white
-    no-repeat center;
-  background-size: cover;
-  z-index: 15;
-}
 .summer-hues-in-bloom {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  width: 1055px;
-  height: 277px;
-  margin: 31.983px 0 0 215px;
   color: #ffffff;
   font-family: Montserrat, var(--default-font-family);
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
-  text-align: center;
-  z-index: 16;
+  text-align: right;
 }
+
 .explore-pottery-creation {
   position: relative;
-  width: 1292px;
+  width: 1350px;
   height: 507px;
-  margin: -1px 0 0 149px;
+  margin: 30px 0 40px 20px;
   z-index: 48;
 }
 .creative-relaxing-space {
   position: absolute;
-  width: 718px;
+  width: 700px;
   height: 507px;
   top: 0;
-  left: 574px;
+  left: 804px;
   background: url(../../assets/images/spring.png)
     no-repeat center;
   background-size: cover;
   z-index: 48;
+  border-radius:20px;
 }
 .vibrant-personalized-pottery {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 512px;
+  width: 700px;
   height: 88px;
   top: 76px;
   left: 13px;
-  color: #2b5c57;
+  color: BLACK;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 700;
   line-height: 43.884px;
-  text-align: center;
+  text-align: LEFT;
   text-overflow: initial;
   z-index: 24;
   overflow: hidden;
@@ -975,11 +977,11 @@ button {
   display: flex;
   align-items: flex-start;
   position: absolute;
-  width: 538px;
+  width: 750px;
   height: 233px;
   top: 174px;
   left: 0;
-  color: #8aa3a0;
+  color: BLACK;
   font-family: Montserrat, var(--default-font-family);
   font-size: 18px;
   font-weight: 400;
@@ -996,166 +998,13 @@ button {
 .cozy-environment {
   position: relative;
   width: 1444px;
-  height: 1042px;
-  margin: 0 0 0 -2px;
+  height: 660px;
   font-size: 0px;
-  background: #bfd8d5;
   z-index: 50;
   overflow: hidden;
+  margin-bottom:30px;
 }
-.summer-hues-in-bloom-workshop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 512px;
-  height: 44px;
-  margin: 84px 0 0 466px;
-  color: #2b5c57;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 43.884px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 52;
-}
-.flex-row-c-1a {
-  position: relative;
-  width: 195px;
-  height: 1.017px;
-  margin: 17px 0 0 625px;
-  background: white
-    no-repeat center;
-  background-size: cover;
-  z-index: 57;
-}
-.flex-row-1b {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  width: 981px;
-  height: 48px;
-  margin: 251.983px 0 0 231px;
-  z-index: 56;
-}
-.leaf {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  width: 271px;
-  height: 48px;
-  color: #2b5c57;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 48px;
-  text-align: center;
-  z-index: 53;
-}
-.frame-1c {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  width: 271px;
-  height: 48px;
-  color: #2b5c57;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 48px;
-  text-align: center;
-  z-index: 55;
-}
-.leaf-1d {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  position: relative;
-  width: 271px;
-  height: 48px;
-  color: #2b5c57;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 48px;
-  text-align: center;
-  z-index: 56;
-}
-.summer-hues-in-bloom-text {
-  position: relative;
-  width: 1017px;
-  height: 154px;
-  margin: 14px 0 0 220px;
-  z-index: 60;
-  text-align: justify;
-}
-.text-24 {
-  align-items: flex-start;
-  position: absolute;
-  width: 281px;
-  height: 87px;
-  top: 0;
-  left: 0;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 22px;
-  text-align: justify;
-  z-index: 58;
-}
-.text-25 {
-  align-items: flex-start;
-  position: absolute;
-  width: 289px;
-  height: 153px;
-  top: 0;
-  left: 355px;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 22px;
-  text-align: justify;
-  z-index: 59;
-}
-.text-26 {
-  align-items: flex-start;
-  position: absolute;
-  width: 296px;
-  height: 153px;
-  top: 1px;
-  left: 721px;
-  color: rgba(0, 0, 0, 0.6);
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 22px;
-  text-align: justify;
-  z-index: 60;
-}
-.text-27 {
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 874px;
-  height: 330px;
-  margin: 32px 0 0 290px;
-  color: #2b5c57;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 21.942px;
-  text-align: center;
-  z-index: 54;
-}
+
 .box-b {
   position: absolute;
   width: 1444px;
@@ -1180,20 +1029,11 @@ button {
   height: 1042px;
   top: 0;
   left: 0;
-  background: #bfd8d5;
+  background: white;
   z-index: 62;
   overflow: hidden;
 }
-.img-7 {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  margin: 27px 0 0 702px;
-  background: url(../../assets/images/leaf.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 63;
-}
+
 .text-28 {
   display: flex;
   align-items: center;
@@ -1202,7 +1042,6 @@ button {
   width: 512px;
   height: 44px;
   margin: 17px 0 0 466px;
-  color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 700;
@@ -1211,16 +1050,7 @@ button {
   white-space: nowrap;
   z-index: 64;
 }
-.img-8 {
-  position: relative;
-  width: 195px;
-  height: 1.017px;
-  margin: 17px 0 0 625px;
-  background: #1F7167
-    no-repeat center;
-  background-size: cover;
-  z-index: 69;
-}
+
 .flex-row-f {
   display: flex;
   align-items: center;
@@ -1240,6 +1070,7 @@ button {
     no-repeat center;
   background-size: cover;
   z-index: 80;
+  border-radius:20px;
 }
 .n-1e {
   flex-shrink: 0;
@@ -1250,6 +1081,8 @@ button {
     no-repeat center;
   background-size: cover;
   z-index: 81;
+  border-radius:20px;
+
 }
 .n-1f {
   flex-shrink: 0;
@@ -1260,6 +1093,8 @@ button {
     no-repeat center;
   background-size: cover;
   z-index: 82;
+  border-radius:20px;
+
 }
 .flex-row-ce {
   display: flex;
@@ -1322,8 +1157,11 @@ button {
 .flex-row-b {
   position: relative;
   width: 1017px;
-  height: 154px;
-  margin: 14px 0 0 220px;
+  height: 100px;
+  margin-top: 14px ;
+  margin-bottom:-100px ;
+  margin-left:220px;
+
   z-index: 72;
 }
 .attendees-learned-pottery-making {
@@ -1380,8 +1218,8 @@ button {
   justify-content: center;
   position: relative;
   width: 874px;
-  height: 330px;
-  margin: 32px 0 0 290px;
+  height: 200px;
+  margin: 100px 0 0 290px;
   color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
   font-size: 18px;
@@ -1414,11 +1252,11 @@ button {
   align-items: center;
   justify-content: flex-start;
   position: absolute;
-  width: 390px;
+  width: 800px;
   height: 88px;
   top: 31px;
   left: 608px;
-  color: #2b5c57;
+  color: BLACK;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 700;
@@ -1430,18 +1268,18 @@ button {
 }
 .rectangle-25 {
   position: absolute;
-  width: 174px;
+  width: 440px;
   height: 9px;
   top: 71px;
   left: 998px;
-  background: #517c77;
+  background:BLACK;
   z-index: 84;
 }
 .harvest-creations-pottery-autumn-success {
   display: flex;
   align-items: flex-start;
   position: absolute;
-  width: 710px;
+  width: 820px;
   height: 153px;
   top: 141px;
   left: 608px;
@@ -1455,16 +1293,16 @@ button {
 }
 .rectangle-26 {
   position: absolute;
-  width: 784px;
+  width: 800px;
   height: 178px;
   top: 396px;
   left: 550px;
-  background: #517c77;
+  background: BLACK;
   z-index: 85;
 }
 .n-27 {
   position: absolute;
-  width: 320px;
+  width: 450px;
   height: 178.333px;
   top: 0;
   left: 464px;
@@ -1545,7 +1383,7 @@ button {
   position: relative;
   width: 40px;
   height: 40px;
-  margin: 31px 0 0 726px;
+  margin: 31px 0 0 0px;
   background: url(../../assets/images/la.png)
     no-repeat center;
   background-size: cover;
@@ -1556,10 +1394,10 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 390px;
+  width: 1000px;
   height: 132px;
-  margin: 13px 0 0 551px;
-  color: #2b5c57;
+  margin: 13px 0 0 250px;
+  color:BLACK;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 600;
@@ -1574,7 +1412,7 @@ button {
   position: relative;
   width: 1001.389px;
   height: 301px;
-  margin: 61px 0 0 250px;
+  margin: 30px 0 0 250px;
   z-index: 93;
 }
 .n-28 {
@@ -1615,7 +1453,21 @@ button {
   height: 24px;
   margin: 6px 0 0 330px;
   z-index: 78;
+    border-radius: 20px;
+
 }
+.n-28, .n-29, .n-2a {
+  flex-shrink: 0;
+  position: relative;
+  width: 289.389px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px; /* Bo tròn góc */
+  overflow: hidden; /* Ẩn phần ảnh phóng to ra ngoài */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+}
+
 .recap-1 {
   display: flex;
   align-items: center;
@@ -1632,6 +1484,7 @@ button {
   text-align: center;
   white-space: nowrap;
   z-index: 76;
+  
 }
 .recap-2 {
   display: flex;
@@ -1671,12 +1524,13 @@ button {
   position: relative;
   width: 1443px;
   height: 613px;
-  margin: 75px 0 0 0;
+  margin: 75px 0 30px 0;
   background: url(../../assets/images/winter.png)
     no-repeat center;
   background-size: cover;
   z-index: 95;
   overflow: visible auto;
+  border-radius:30px;
 }
 .flex-row-cef {
   position: relative;
@@ -1687,21 +1541,20 @@ button {
 }
 .rectangle-2b {
   position: absolute;
-  width: 269px;
+  width: 300px;
   height: 178px;
   top: 0;
-  left: 0;
-  background: #8aa3a0;
+  left: 30;
   z-index: 96;
+  margin-left:-100px;
 }
 .rectangle-2c {
   position: absolute;
   width: 720px;
   height: 178px;
   top: 0;
-  left: 238px;
+  left: 285px;
   font-size: 0px;
-  border: 5px solid #8aa3a0;
   z-index: 97;
 }
 .winter-workshop {
@@ -1739,10 +1592,11 @@ button {
   align-items: center;
   justify-content: flex-start;
   position: absolute;
-  width: 269px;
+  width: 500px;
   height: 106px;
   top: 36px;
-  left: 11px;
+  left: 61px;
+  margin-left:-140px;
   color: #ffffff;
   font-family: Montserrat, var(--default-font-family);
   font-size: 54px;
@@ -1756,9 +1610,9 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 553px;
+  width: 1000px;
   height: 108px;
-  margin: 30px 0 0 444px;
+  margin: 30px 0 0 250px;
   color: #ffffff;
   font-family: Montserrat, var(--default-font-family);
   font-size: 44px;
@@ -1777,11 +1631,17 @@ button {
   width: 273px;
   height: 43px;
   margin: 31px 0 0 585px;
-  padding: 20px 32px 20px 32px;
-  background: #2b5c57;
+  background: black;
   z-index: 102;
-  border-radius: 10px;
+  border-radius: 20px;
+  transition: transform 0.3s ease; /* Hiệu ứng mượt mà khi hover */
+  cursor: pointer; /* Thay đổi con trỏ để thể hiện rằng nó có thể click */
 }
+
+.button-2d:hover {
+  transform: scale(1.1); /* Phóng to khi hover */
+}
+
 .register-now {
   display: flex;
   align-items: center;
@@ -1800,12 +1660,20 @@ button {
   white-space: nowrap;
   z-index: 103;
 }
+.rectangle-2b, .rectangle-2c {
+  background: rgba(255, 255, 255, 0.2); /* Lớp nền trắng mờ */
+  border-radius: 20px; /* Bo góc cho phần tử */
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ */
+  -webkit-backdrop-filter: blur(10px); /* Hiệu ứng mờ cho Safari */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Đổ bóng để tạo chiều sâu */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Viền trắng nhạt */
+}
+
 .frame-2e {
   position: relative;
   width: 1444px;
   height: 593px;
   margin: 0 0 0 0;
-  background: #bfd8d5;
   z-index: 105;
   overflow: hidden;
 }
@@ -1814,22 +1682,27 @@ button {
   width: 580px;
   height: 478.742px;
   top: 53px;
-  left: 775px;
-  background: url(../../assets/images/ws.png)
-    no-repeat center;
+  left: 850px;
+  background: url(../../assets/images/ws.png) no-repeat center;
   background-size: cover;
   z-index: 106;
+  border-radius: 30px;
+  padding: 10px; /* Khoảng trống cho viền trắng */
+  background-color: white; /* Nền trắng xung quanh hình */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+  box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến kích thước */
 }
+
 .icicle-inspirations-winter-crafting-2f {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   position: absolute;
-  width: 557px;
+  width: 1000px;
   height: 88px;
   top: 53px;
-  left: 185px;
-  color: #2b5c57;
+  left: 10px;
+  color: black;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 700;
@@ -1841,15 +1714,15 @@ button {
   display: flex;
   align-items: flex-start;
   position: absolute;
-  width: 508px;
+  width: 680px;
   height: 54px;
   top: 158px;
-  left: 185px;
+  left: 10px;
   color: #858080;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.6;
   text-align: justify;
   z-index: 112;
 }
@@ -1858,7 +1731,7 @@ button {
   width: 30px;
   height: 30px;
   top: 239px;
-  left: 202px;
+  left: 10px;
   background: url(../../assets/images/venue.png)
     no-repeat center;
   background-size: cover;
@@ -1869,7 +1742,7 @@ button {
   width: 30px;
   height: 30px;
   top: 239px;
-  left: 488px;
+  left: 400px;
   background: url(../../assets/images/time.png)
     no-repeat center;
   background-size: cover;
@@ -1882,10 +1755,10 @@ button {
   position: absolute;
   height: 20px;
   top: 247px;
-  left: 241px;
+  left: 50px;
   color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 19.504px;
   text-align: left;
@@ -1899,7 +1772,7 @@ button {
   position: absolute;
   height: 20px;
   top: 247px;
-  left: 527px;
+  left: 450px;
   color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
   font-size: 16px;
@@ -1913,13 +1786,13 @@ button {
   display: flex;
   align-items: center;
   position: absolute;
-  width: 197px;
+  width: 240px;
   height: 52px;
-  top: 276px;
-  left: 241px;
+  top: 300px;
+  left: 10px;
   color: #858080;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 22px;
   text-align: justify;
@@ -1931,11 +1804,11 @@ button {
   position: absolute;
   width: 118px;
   height: 30px;
-  top: 276px;
-  left: 527px;
+  top: 285px;
+  left: 400px;
   color: #858080;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 22px;
   text-align: justify;
@@ -1946,8 +1819,8 @@ button {
   position: absolute;
   width: 30px;
   height: 30px;
-  top: 362px;
-  left: 202px;
+  top: 400px;
+  left: 10px;
   background: url(../../assets/images/par.png)
     no-repeat center;
   background-size: cover;
@@ -1957,8 +1830,8 @@ button {
   position: absolute;
   width: 30px;
   height: 30px;
-  top: 362px;
-  left: 487px;
+  top: 400px;
+  left: 400px;
   background: url(../../assets/images/act.png)
     no-repeat center;
   background-size: cover;
@@ -1970,11 +1843,11 @@ button {
   justify-content: flex-start;
   position: absolute;
   height: 20px;
-  top: 364px;
-  left: 526px;
+  top: 410px;
+  left: 450px;
   color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 19.504px;
   text-align: left;
@@ -1987,11 +1860,11 @@ button {
   justify-content: flex-start;
   position: absolute;
   height: 20px;
-  top: 368px;
-  left: 241px;
+  top: 410px;
+  left: 50px;
   color: #2b5c57;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 19.504px;
   text-align: left;
@@ -2004,11 +1877,11 @@ button {
   position: absolute;
   width: 197px;
   height: 8px;
-  top: 397px;
-  left: 241px;
+  top: 460px;
+  left: 10px;
   color: #858080;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 8px;
   text-align: justify;
@@ -2019,13 +1892,13 @@ button {
   display: flex;
   align-items: center;
   position: absolute;
-  width: 159px;
+  width: 300px;
   height: 96px;
-  top: 397px;
-  left: 526px;
+  top: 445px;
+  left: 400px;
   color: #858080;
   font-family: Montserrat, var(--default-font-family);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 22px;
   text-align: justify;
@@ -2039,7 +1912,7 @@ button {
   width: 178px;
   height: auto;
   margin: 25px 0 0 634px;
-  color: #2b5c57;
+  color: black;
   font-family: Montserrat, var(--default-font-family);
   font-size: 36px;
   font-weight: 700;
@@ -2056,7 +1929,7 @@ button {
   width: 508px;
   height: 10px;
   margin: 11px 0 0 469px;
-  color: #858080;
+  color: black;
   font-family: Montserrat, var(--default-font-family);
   font-size: 14px;
   font-weight: 100;
@@ -2129,7 +2002,7 @@ button {
   position: absolute;
   width: 859px;
   height: 256px;
-  top: 5550px;
+  top: 5000px;
   left: 289px;
   z-index: 138;
 }
@@ -2139,8 +2012,11 @@ button {
   height: 231px;
   top: 0;
   left: 0;
-  background: #bfd8d5;
+  background: WHITE;
   z-index: 130;
+  border-radius:20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
 }
 .testimonial {
   display: flex;
@@ -2164,8 +2040,12 @@ button {
   height: 231px;
   top: 0;
   left: 297px;
-  background: #bfd8d5;
+  background: white;
   z-index: 131;
+  border-radius:20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+
 }
 .testimonial-57 {
   display: flex;
@@ -2189,8 +2069,11 @@ button {
   height: 231px;
   top: 0;
   left: 591px;
-  background: #bfd8d5;
+  background: white;
   z-index: 132;
+  border-radius:20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
 }
 .inverted-commas-58 {
   display: flex;
@@ -2248,7 +2131,7 @@ button {
   position: absolute;
   width: 877px;
   height: 70px;
-  top: 5800px;
+  top: 5250px;
   left: 306px;
   z-index: 141;
 }
@@ -2353,7 +2236,6 @@ button {
   font-weight: 400;
   line-height: 7px;
   text-align: left;
-  white-space: nowrap;
   z-index: 123;
 }
 .workshop-tag-60 {
@@ -2370,7 +2252,6 @@ button {
   font-weight: 400;
   line-height: 7px;
   text-align: left;
-  white-space: nowrap;
   z-index: 127;
 }
 .workshop-tag-61 {
@@ -2387,6 +2268,6 @@ button {
   font-weight: 400;
   line-height: 7px;
   text-align: left;
-  white-space: nowrap;
   z-index: 128;
 }
+
