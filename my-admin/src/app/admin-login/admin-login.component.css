@@ -41,7 +41,7 @@ input {
 }
 
 button {
-  background-color: black;
+  background-color: #333333;
   color: white;
   border: none;
   border-radius: 20px;
