@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, NgZone } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -16,44 +16,49 @@ export class WorkshopComponent implements AfterViewInit {
   minutes: number = 0;
   seconds: number = 0;
   private countdownInterval: any;
+  targetDate: Date = new Date('2024-11-07T23:59:59');
 
-  targetDate: Date = new Date('2024-11-07T23:59:59'); // Example target date
+  constructor(private ngZone: NgZone) {}
 
   ngAfterViewInit(): void {
     this.startCountdown();
-    console.log("Contact form initialized:", this.contactForm);
   }
 
   // Countdown function
   startCountdown(): void {
-    this.countdownInterval = setInterval(() => {
-      const currentTime = new Date().getTime();
-      const targetTime = this.targetDate.getTime();
-      const timeDifference = targetTime - currentTime;
+    this.ngZone.runOutsideAngular(() => {
+      this.countdownInterval = setInterval(() => {
+        this.ngZone.run(() => {
+          const currentTime = new Date().getTime();
+          const targetTime = this.targetDate.getTime();
+          const timeDifference = targetTime - currentTime;
 
-      if (timeDifference > 0) {
-        this.days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        this.hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        this.minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        this.seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-      } else {
-        clearInterval(this.countdownInterval);
-        this.days = 0;
-        this.hours = 0;
-        this.minutes = 0;
-        this.seconds = 0;
-        alert('Countdown Complete!');
-      }
-    }, 1000); // Update every 1 second
+          if (timeDifference > 0) {
+            this.days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            this.hours = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            this.minutes = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            this.seconds = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+          } else {
+            clearInterval(this.countdownInterval);
+            this.days = 0;
+            this.hours = 0;
+            this.minutes = 0;
+            this.seconds = 0;
+            alert('Countdown Complete!');
+          }
+        });
+      }, 1000); // Update every 1 second
+    });
   }
 
   // Form submission handling
   onSubmit(form: NgForm): void {
     if (form.valid) {
-      alert('Registered successfully!'); // Thông báo khi đăng ký thành công
+      alert('Registered successfully!');
       this.resetForm();
     } else {
-      this.showErrorMessage(); // Hiển thị lỗi nếu có
+      this.showErrorMessage();
     }
   }
 
@@ -80,11 +85,14 @@ export class WorkshopComponent implements AfterViewInit {
   scrollToForm(): void {
     if (this.contactForm) {
       this.contactForm.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      
     }
   }
-  scrollToRegister() {
-    window.scrollTo(0, 100); // Cuộn về đầu trang;
-    this.contactForm.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Scroll to register form
+  scrollToRegister(): void {
+    window.scrollTo(0, 100);
+    if (this.contactForm) {
+      this.contactForm.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

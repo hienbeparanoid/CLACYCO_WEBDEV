@@ -13,19 +13,19 @@
               <span class='seconds' style="color:black">SECONDS</span>
             </div>
             <div class="flex-row-fb">
-                <div class="khung">
-                  <span class="number-10" id="days">10</span> <!-- Days -->
-                </div>
-                <div class="khung-13">
-                  <span class="number-15" id="hours">15</span> <!-- Hours -->
-                </div>
-                <div class="khung-14">
-                  <span class="number-00" id="minutes">00</span> <!-- Minutes -->
-                </div>
-                <div class="khung-15">
-                  <span class="number-08" id="seconds">08</span> <!-- Seconds -->
-                </div>
-              </div>                            
+              <div class="khung">
+                <span class="number-10">{{ days }}</span> <!-- Days -->
+              </div>
+              <div class="khung-13">
+                <span class="number-15">{{ hours }}</span> <!-- Hours -->
+              </div>
+              <div class="khung-14">
+                <span class="number-00">{{ minutes }}</span> <!-- Minutes -->
+              </div>
+              <div class="khung-15">
+                <span class="number-08">{{ seconds }}</span> <!-- Seconds -->
+              </div>
+            </div>                                
               <form class="contact-form" #contactForm="ngForm" id="contactForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
                 <div class="form-group">
                   <input 
