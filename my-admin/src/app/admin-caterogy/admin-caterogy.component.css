@@ -117,10 +117,10 @@
     padding: 5px;
 }
 .table_content tr:nth-child(even){
-    background-color: #edf7ed
+    background-color: #d5e8e5;
 }
 .table_content tr:nth-child(even):hover{
-    background-color: #b0cac7
+    background-color: #e6f3f1;
 }
 .cate_image img{
     height: 100px;

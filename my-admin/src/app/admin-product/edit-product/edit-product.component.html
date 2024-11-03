@@ -62,36 +62,32 @@
           </label>
         </div>
         <div class="content_right">
-          <label for="useEdit">Usage:
+          <label for="useCustomize">Customizable:
             <div>
-              <input type="text" class="form-control" name="useEdit" id="useEdit"
-                [(ngModel)]="cosmetic.Uses" />
+              <select name="customizable" id="customizable" [(ngModel)]="cosmetic.Customizable">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
             </div>
           </label>
-          <label for="ingredientEdit">Thành phần:
+          <label for="originEdit">Origin:
             <div>
-              <input type="text" class="form-control" name="ingredientEdit" id="ingredientEdit"
-                [(ngModel)]="cosmetic.Ingredients" />
+              <input type="text" class="form-control" #name="ngModel" name="originEdit" id="originEdit"
+                [(ngModel)]="cosmetic.Origin" />
             </div>
           </label>
           <label for="descriptionEdit">Description:
             <div>
               <textarea type="text" class="form-control" #name="ngModel" name="descriptionEdit" id="descriptionEdit"
                 [(ngModel)]="cosmetic.Description">
-            </textarea>
-            </div>
-          </label>
-          <label for="warningEdit">Usage notes:
-            <div>
-              <textarea type="text" class="form-control" #name="ngModel" name="warningEdit" id="warningEdit"
-                [(ngModel)]="cosmetic.Warnings">
-          </textarea>
+              </textarea>
             </div>
           </label>
           <label for="preserveEdit">Storage Instructions:
             <div>
-              <input type="text" class="form-control" #name="ngModel" name="preserveEdit" id="preserveEdit"
-                [(ngModel)]="cosmetic.Store" />
+              <textarea type="text" class="form-control" #name="ngModel" name="preserveEdit" id="preserveEdit"
+                [(ngModel)]="cosmetic.Store">
+              </textarea>
             </div>
           </label>
         </div>

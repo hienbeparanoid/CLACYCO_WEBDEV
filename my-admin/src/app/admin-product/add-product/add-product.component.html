@@ -61,16 +61,18 @@
           </label>
         </div>
         <div class="content_right">
-          <label for="use">Usage:
+          <label for="useCustomize">Customizable:
             <div>
-              <input type="text" class="form-control" name="use" id="use"
-                placeholder="Enter usage" [(ngModel)]="cosmetic.Uses" />
+              <select name="customizable" id="customizable" [(ngModel)]="cosmetic.Customizable">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
             </div>
           </label>
-          <label for="ingredient">Thành phần:
+          <label for="origin">Origin:
             <div>
-              <input type="text" class="form-control" name="ingredient" id="ingredient"
-                placeholder="Nhập thành phần" [(ngModel)]="cosmetic.Ingredients" />
+              <input type="text" class="form-control" #name="ngModel" name="origin" id="origin"
+                placeholder="Input origin" [(ngModel)]="cosmetic.Origin" />
             </div>
           </label>
           <label for="description">Description:
@@ -80,17 +82,11 @@
               </textarea>
             </div>
           </label>
-          <label for="warning">Usage Notes:
-            <div>
-              <textarea type="text" class="form-control text-area" name="warning" id="warning"
-                placeholder="Enter usage notes" [(ngModel)]="cosmetic.Warnings">
-              </textarea>
-            </div>
-          </label>
           <label for="preserve">Storage Instructions:
             <div>
-              <input type="text" class="form-control" name="preserve" id="preserve"
-                placeholder="Enter storage instruction" [(ngModel)]="cosmetic.Store" />
+              <textarea type="text" class="form-control" name="preserve" id="preserve"
+                placeholder="Enter storage instruction" [(ngModel)]="cosmetic.Store">
+              </textarea>
             </div>
           </label>
         </div>

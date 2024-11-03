@@ -6,10 +6,9 @@ export class Cosmetics{
       public Price: string = '',
       public Image: string = '',
       public Description: string = '',
-      public Ingredients: string = '',
-      public Uses: string = '',
+      public Origin: string = '',
+      public Customizable: string = '',
       public Store: string = '',
-      public Warnings: string = '',
       public Category: string='',
       public Quantity: string = '',
       public Create_date: Date = new Date() 

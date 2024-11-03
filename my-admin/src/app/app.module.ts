@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminCustomerComponent } from './admin-customer/admin-customer.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { AdminMessengerComponent } from './admin-messenger/admin-messenger.component';
 import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { AdminProductComponent } from './admin-product/admin-product.component';
 import { AdminNavigateBarComponent } from './admin-navigate-bar/admin-navigate-bar.component';
@@ -37,7 +36,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppComponent,
     AdminCustomerComponent,
     AdminLoginComponent,
-    AdminMessengerComponent,
     AdminOrderComponent,
     AdminProductComponent,
     AdminNavigateBarComponent,

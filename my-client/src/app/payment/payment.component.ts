@@ -22,8 +22,8 @@ export class PaymentComponent implements OnInit {
   discountCode: string = '';
   discountPrice: number = 0;
   prePrice: number = 0;
-  price: number = 25000;
-  deliveryFee: number = 25000;
+  price: number = 250;
+  deliveryFee: number = 20;
   isChecked_Confirm: boolean = false;
   isChecked_COD: boolean = false;
   isChecked_MoMo: boolean = false;
@@ -121,7 +121,7 @@ export class PaymentComponent implements OnInit {
       this.order.CustomerName = this.currentUser.Name,
       this.order.OrderDate = new Date().toLocaleDateString(),
       this.order.ShipDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString(),
-      this.order.Status = 'Chờ xác nhận',
+      this.order.Status = 'Confirming',
       this.order.Phone = this.currentUser.phonenumber,
       this.order.Email = this.currentUser.Mail,
       this.order.Address = this.currentUser.Address,
@@ -131,11 +131,11 @@ export class PaymentComponent implements OnInit {
       this.order.DiscountPrice = this.discountPrice,
       this.order.OrderCosmetic = this.selectedItems
     if (this.isChecked_COD) {
-      this.order.PaymentMethod = 'Thanh toán khi nhận hàng';
+      this.order.PaymentMethod = 'Cash on Delivery';
     } else if (this.isChecked_Banking) {
-      this.order.PaymentMethod = 'Thanh toán qua thẻ ATM nội địa/ Internet Banking';
+      this.order.PaymentMethod = 'Payment via Domestic ATM Card/Internet Banking';
     } else if (this.isChecked_MoMo) {
-      this.order.PaymentMethod = 'Thanh toán qua ví điện tử Momo';
+      this.order.PaymentMethod = 'Payment via Momo E-wallet';
     }
     if (this.isChecked_Confirm) {
       if (this.isChecked_COD) {
@@ -145,10 +145,10 @@ export class PaymentComponent implements OnInit {
       } else if (this.isChecked_MoMo) {
         this.router.navigate(['/app-payment-momo']);
       } else {
-        alert('Vui lòng chọn phương thức thanh toán');
+        alert('Please select a payment method');
       }
     } else {
-      alert('Vui lòng đồng ý với điều khoản và điều kiện của chúng tôi');
+      alert('Please agree to our terms and conditions');
     }
 
     if (this.isChecked_COD || this.isChecked_Banking || this.isChecked_MoMo) {

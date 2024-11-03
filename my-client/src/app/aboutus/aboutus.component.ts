@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 export class AboutUsComponent {
   activeTab: string = 'vision';
 
-  constructor(private router: Router) {} // Thêm Router vào constructor
+  constructor(private router: Router) {} // Khởi tạo Router trong constructor
 
   toggleTab(tab: string) {
     this.activeTab = tab;
   }
 
   browseProduct() {
-    this.router.navigate(['/app-category']);
+    this.router.navigate(['/app-category']); // Điều hướng đúng cách
   }
 }

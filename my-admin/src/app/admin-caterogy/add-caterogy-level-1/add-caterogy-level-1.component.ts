@@ -43,7 +43,7 @@ export class AddCaterogyLevel1Component {
         this.errMessage = err;
       },
     });
-    alert("Thêm danh mục thành công")
+    alert("Category added successfully")
     this.goBack();
   }
 
