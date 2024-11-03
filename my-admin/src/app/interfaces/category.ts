@@ -4,7 +4,6 @@ Category: any;
       public _id: any=null,
       public Name: string = '',
       public Description: string = '',
-      public Image: string = '',
     ) {}
   }
   
