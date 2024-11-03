@@ -21,19 +21,6 @@ export class AddCaterogyLevel1Component {
     this.category = f;
   }
 
-  onFileSelected(event: any, category: Category) {
-    let me = this;
-    let file = event.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      category.Image = reader.result!.toString();
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-  }
-
   postCategory() {
     this._service.postCategory(this.category).subscribe({
       next: (data) => {
