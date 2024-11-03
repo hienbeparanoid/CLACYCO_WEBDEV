@@ -1,5 +1,5 @@
 .login-page {
-  background-color: #ffffff;
+  background-color: #F4F5F6;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -10,9 +10,9 @@
 }
 
 .form {
-  background-color: #c0e9beb5;
+  background-color: #8AA3A0;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   width: 400px;
   text-align: center;
@@ -28,7 +28,7 @@ h2 {
   margin: 0 0 20px;
   text-align: center;
   font-size: 28px;
-  color: #225730;
+  color: black;
 }
 
 input {
@@ -41,19 +41,20 @@ input {
 }
 
 button {
-  background-color: #225730;
-  color: #ffffff;
+  background-color: black;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 12px;
-  margin-top: 15px;
+  margin-top: 25px;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   transition: background-color 0.2s;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #194c27;
+  transform: scale(1.1);
 }
 
 .error-msg {
