@@ -49,7 +49,6 @@
         <div class="container__input--item gender">Sex:
           <input class="radio" type="radio" name="gender" id="male" [value]="'Male'" required />
           <label for="male">Male</label>
-          &nbsp; &nbsp; &nbsp;
           <input type="radio" name="gender" id="female" [value]="'Female'" required />
           <label for="female">Female</label>
         </div>
@@ -72,8 +71,8 @@
       </div>
 
       <div class="condition">
-        <input type="checkbox" name="type" id="type" value="condition" [(ngModel)]="account.agreement" /> <label
-          for="type">I have read and agree to 
+        <input type="checkbox" name="type" id="type" value="condition" [(ngModel)]="account.agreement" /> 
+        <label for="type">I have read and agree to 
           Clayco's General Terms and Conditions and Privacy Policy.</label> <span style="color:red">*</span>
       </div>
       <div>

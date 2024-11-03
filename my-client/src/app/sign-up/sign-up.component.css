@@ -149,6 +149,7 @@ h3 {
   width: 16px !important;
   height: 16px;
   margin-right: 5px;
+  margin-left: 140px;
 }
 
 [type="radio"]:checked {
@@ -157,10 +158,10 @@ h3 {
 }
 
 .gender .input--content {
-  width: 60%;
+  width: 50%;
   display: flex;
-  gap: 75px;
-  justify-content: center;
+  gap: 10px;
+  justify-content: left;
   cursor: pointer;
   font-size: 15px;
 }
@@ -231,6 +232,8 @@ h3 {
   margin-left: 70px;
   margin-right: 60px;
   margin-top: 15px;
+  font-style: italic;
+  color: white;
 }
 
 .radio {
