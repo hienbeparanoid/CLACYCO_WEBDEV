@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf, NgClass } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aboutus',
@@ -11,7 +12,15 @@ import { NgIf, NgClass } from '@angular/common';
 export class AboutUsComponent {
   activeTab: string = 'vision';
 
+  constructor(
+    private router: Router,
+  ) {}
+
   toggleTab(tab: string) {
     this.activeTab = tab;
+  }
+
+  browseProduct() {
+    this.router.navigate(['/app-category']);
   }
 }

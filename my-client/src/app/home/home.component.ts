@@ -144,4 +144,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   toCustomize() {
     this.router.navigate(['/app-customization']);
   }
+
+  toworkshop() {
+    this.router.navigate(['/workshop']);
+  }
 }
