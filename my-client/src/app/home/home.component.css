@@ -58,7 +58,7 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
     background-size: 100% 100%; /* Kéo giãn ảnh để lấp đầy cả chiều rộng và chiều cao */
     background-position: center;
     background-repeat: no-repeat;
-    height: 500px;
+    height: 550px;
     position: relative;
     overflow: hidden;
 
