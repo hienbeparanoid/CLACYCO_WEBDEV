@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 const { MongoClient, ObjectId } = require("mongodb");
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
-database = client.db("BeaurityDatabase");
+database = client.db("ClayCoDatabase");
 cosmeticCollection = database.collection("CosmeticData");
 customerCollection = database.collection("CustomerData");
 orderCollection = database.collection("OrderData");
