@@ -2,6 +2,10 @@
 body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .shipping-handling, .our-services, .service-values, button, a, p, h1, h2, h3, span {
     font-family: 'Montserrat', sans-serif;
   }
+
+  body {
+    overflow-x: hidden;
+}
   
   .scroll-arrow {
     position: fixed;
