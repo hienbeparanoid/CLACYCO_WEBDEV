@@ -767,6 +767,10 @@ button {
   white-space: nowrap;
   z-index: 45;
 }
+.submit:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 .flex-column {
   display: flex;
   align-items: center;

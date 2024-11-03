@@ -81,6 +81,7 @@
 .cart__top-button button:hover {
   cursor: pointer;
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .cart__main {
@@ -214,6 +215,7 @@
 .order__row-button button:hover {
   cursor: pointer;
   transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .left {
