@@ -65,7 +65,7 @@ export class EditProductComponent {
       next: (data) => { this.cosmetic = data },
       error: (err) => { this.errMessage = err }
     }),
-    alert("Sửa sản phẩm thành công!")
+    alert("Edit product successfully!")
     this.goBack()
   }
 
