@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cosmetics } from '../../Interfaces/Cosmetic';
 import { CosmeticService } from '../../SERVICES/cosmetic.service';
 import { CategoryService } from '../../SERVICES/category.service';
-
 
 @Component({
   selector: 'app-customizing',
@@ -20,12 +19,16 @@ export class CustomizingComponent implements OnInit {
   wordCount: number = 0;
   uploadNotification: string = '';
   specialDetails: string = '';
+  isDropdownOpen: boolean = false; // Trạng thái của dropdown
+  selectedItem: string = ''; // Mục đã chọn từ dropdown
 
+  @ViewChild('scrollArrow') scrollArrow!: ElementRef; // Khai báo ViewChild
   constructor(
     public _service: CosmeticService,
     public _fs: CategoryService,
     private router: Router,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private renderer: Renderer2 // Khai báo Renderer2
   ) {
     activateRoute.paramMap.subscribe((param) => {
       let category = param.get('category');
@@ -70,7 +73,9 @@ export class CustomizingComponent implements OnInit {
 
   triggerFileInput() {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-    fileInput.click();
+    if (fileInput) {
+      fileInput.click();
+    }
   }
 
   handleFileUpload(event: any) {
@@ -88,12 +93,56 @@ export class CustomizingComponent implements OnInit {
         console.log(response);
         alert("Product added to cart successfully!");
         window.location.reload();
-        // Thêm sản phẩm vào giỏ hàng thành công
       },
       (error: any) => {
         console.log(error);
-        // Xảy ra lỗi khi thêm sản phẩm vào giỏ hàng
       }
     );
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  selectItem(item: string): void {
+    this.selectedItem = item; // Gán mục đã chọn vào selectedItem
+    this.isDropdownOpen = false; // Đóng dropdown sau khi chọn
+  }
+
+  scrollToForm() {
+    const section = document.getElementById('formContainer');
+    if (section) {
+      const sectionPosition = section.offsetTop;
+      const offset = 20; // Điều chỉnh khoảng cách tùy ý
+
+      window.scrollTo({
+        top: sectionPosition - offset,
+        behavior: 'smooth'
+      });
+
+      // Ẩn mũi tên sau khi cuộn
+      const arrow = this.scrollArrow.nativeElement;
+      this.renderer.addClass(arrow, 'hide-arrow');
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const arrow = this.scrollArrow.nativeElement;
+
+    // Chỉ hiển thị mũi tên nếu ở đầu trang
+    if (window.scrollY === 0) {
+      this.renderer.removeClass(arrow, 'hide-arrow');
+    } else {
+      this.renderer.addClass(arrow, 'hide-arrow');
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeDropdown(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.droplist-position')) {
+      this.isDropdownOpen = false;
+    }
   }
 }

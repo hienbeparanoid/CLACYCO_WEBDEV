@@ -14,8 +14,8 @@
   </div>
   <div class="content">
     <div class="text-container">
-      <a class="bold" style="font-weight: 700; font-size: 2em;">CLAYCO.</a>
-      <a class="bold">The Essence of Ceramic Art, Flowers, and Greenery</a>
+      <a class="bold" style="font-weight: 700; font-size: 2em;color:white">CLAYCO.</a>
+      <a class="bold"  style="color:white">The Essence of Ceramic Art, Flowers, and Greenery</a>
         <p>"Where ceramic artistry meets fresh blooms and lush greenery for a serene, sustainable lifestyle."</p>
     </div>
     <button id="explorecollect" (click)="browseProduct()">Explore our collection of gorgeous products &nbsp; &nbsp;<i class="fas fa-arrow-right"></i></button>
@@ -112,7 +112,7 @@
           <img src="assets/images/workshop.png" alt="Workshop">
           <h3 class="service-title" #workshopTypingEffect>WORKSHOP</h3>
           <p class="service-description">Unleash your creativity at our workshops, where you'll craft one-of-a-kind products that reflect your unique style and passion.</p>
-          <button class="service-button" style="font-size: 18px; font-weight: bold; cursor: pointer; color: #ffffff; background-color: black;">Join Now</button>
+          <button class="service-button" (click)="toWorkshop()" style="font-size: 18px; font-weight: bold; cursor: pointer; color: #ffffff; background-color: black;">Join Now</button>
         </div>
       </div>
     </div>

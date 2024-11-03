@@ -3,7 +3,7 @@
       <div class="rectangle"></div>
       <div class="flex-column-a">
         <span class="our-blog">Our Blog</span>
-        <span class="browse-garments"
+        <span class="browse-garments" style="line-height:1.6; font-size:18px;width:600px"
           >Browse through our diverse range of meticulously crafted garments,
           designed to bring out your individuality and cater to your sense of
           style.</span>
@@ -12,17 +12,19 @@
         </div>
         <div class="frame"></div>
         <div class="container">
-          <button class="link">
-            <span class="all-blog-posts">All Blog Posts</span></button
-          ><button class="link-2"><span class="ceramic">Ceramic</span></button
-          ><button class="link-3">
-            <span class="plants-101">Plant Tips</span></button
-          ><button class="link-4">
+          <button class="link" (click)="scrollToAllBlogPosts()">
+            <span class="all-blog-posts">All Blog Posts</span>
+          </button>
+          <button class="link-2" (click)="scrollToCeramic()"><span class="ceramic">Ceramic</span>
+          </button>
+          <button class="link-3" (click)="scrollToPlant()">
+            <span class="plants-101">Plant Tips</span></button>
+          <button class="link-4" (click)="scrollToFlower()">
             <span class="flower-tips">Flower Tips</span>
           </button>
         </div>
         <div class="container-5"></div>
-        <span class="all-blog-posts-6">All Blog Posts</span>
+        <span class="all-blog-posts-6" #allBlogPosts>All Blog Posts</span>
         <div class="container-7">
           <div class="frame-8">
             <div class="frame-9">

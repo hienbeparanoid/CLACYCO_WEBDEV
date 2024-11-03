@@ -260,3 +260,21 @@ thead td {
     line-height: 1.6;
   }
   
+  /* Đặt font Montserrat cho tất cả các phần tử trong .container */
+.container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Thiết lập line-height cho tất cả các đoạn văn dài */
+.container p,
+.container .content--item,
+.container .sub-header,
+.container .sub-header-2,
+.container .list-item {
+    line-height: 1.6;
+}
+
+/* Đảm bảo tất cả các đoạn văn có khoảng cách dòng đồng nhất */
+ul {
+    line-height: 1.6;
+}

@@ -25,6 +25,7 @@
 .category-navigation .checklist.categories ul {
     list-style: none;
     padding: 0;
+
 }
 
 .category-navigation .checklist.categories li {
@@ -35,16 +36,18 @@
     text-decoration: none;
     color: #000;
     font-size: 16px;
+
 }
 
 .category-navigation a:hover {
-    color: #416763;
+    color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
 .category-navigation .checklist.categories a:hover {
     color: #8AA3A0;
+
     font-weight: bold;
     cursor: pointer;
 }

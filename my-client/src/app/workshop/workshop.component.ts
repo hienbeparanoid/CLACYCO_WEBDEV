@@ -80,9 +80,11 @@ export class WorkshopComponent implements AfterViewInit {
   scrollToForm(): void {
     if (this.contactForm) {
       this.contactForm.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => {
-        this.focusFullName();
-      }, 1000); // Adjust time if needed to match scroll speed
+      
     }
+  }
+  scrollToRegister() {
+    window.scrollTo(0, 100); // Cuộn về đầu trang;
+    this.contactForm.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

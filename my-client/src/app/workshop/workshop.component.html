@@ -26,7 +26,7 @@
                   <span class="number-08" id="seconds">08</span> <!-- Seconds -->
                 </div>
               </div>                            
-              <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+              <form class="contact-form" #contactForm="ngForm" id="contactForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
                 <div class="form-group">
                   <input 
                     #fullNameInput="ngModel"
@@ -41,7 +41,7 @@
                     Please enter your full name.
                   </div>
                 </div>
-              
+                
                 <div class="form-group">
                   <input 
                     #emailInput="ngModel"
@@ -99,9 +99,7 @@
             elements of the season—frost, snow, and ice—to inspire stunning
             pottery creations that tell the story of winter's quiet beauty."
           </span>
-          <button type="button" class="about-our-workshops" (click)="focusFullName()">
-            <span class="line-18">REGISTER</span>
-          </button>          
+                   
         </div>
       </div>
       <!--About our workshop-->
@@ -218,7 +216,7 @@
           Icicle Inspirations: Crafting Winter in Clay
         </span>
         <button type="button" class="button-2d" (click)="scrollToForm()">
-          <span class="register-now">REGISTER NOW</span>
+          <span class="register-now" (click)="scrollToRegister()">REGISTER NOW</span>
         </button>        
       </div>
 
@@ -274,12 +272,12 @@
         </div>
         <div class='testimonial-56'>
           <span class='testimonial-57'>
-            "The workshop was a perfect blend of learning and creativity! The instructors were patient and knowledgeable, making sure everyone felt comfortable at every step. I left with not only a wonderful pottery piece but also a newfound passion for clay art!"
+            "The workshop was a perfect blend of learning and creativity! The instructors were patient and knowledgeable. I left with not only a wonderful pottery piece but also a newfound passion for clay art!"
           </span>
         </div>
         <div class='inverted-commas'>
           <span class='inverted-commas-58'>
-            "Clayco’s workshop was beyond my expectations! The cozy environment and supportive guidance made it easy to try new techniques. I loved how each of us could personalize our work and create something truly unique. Can’t wait to join another session!"
+            "Clayco’s workshop was beyond my expectations! The cozy environment and supportive guidance made it easy to try new techniques. Can’t wait to join another session!"
           </span>
         </div>
       </div>

@@ -35,10 +35,8 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
   }
   
   .home_banner {
-      background-color: white;
       text-align: left;
       vertical-align: top;
-      color: #8AA3A0;
       display: grid;
       grid-template-columns: 0.1fr 0.1fr 0.2fr 6.5fr 3fr;
       font: 1000 38px/50px;
@@ -56,21 +54,18 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    background-image: url('/assets/images/wall.jpg');
-    background-size: cover;
+    background-image: url('/assets/images/potdisplay.png');
+    background-size: 100% 100%; /* Kéo giãn ảnh để lấp đầy cả chiều rộng và chiều cao */
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 500px;
-    position: relative; /* Đảm bảo lớp phủ hoạt động */
-    overflow: hidden; /* Để lớp phủ không tràn ra ngoài */
+    position: relative;
+    overflow: hidden;
     padding-bottom: 20px;
-  
-  }
-  
-  .content::before {
+}
+
+
+.content::before {
     content: '';
     position: absolute;
     top: 0;
@@ -78,27 +73,28 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
     width: 100%;
     height: 100%;
     background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.4) 50%,
-      rgba(255, 255, 255, 0) 100%
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
     );
     opacity: 0.6; /* Độ trong suốt của hiệu ứng gương */
     transform: skewX(-30deg); /* Tạo hiệu ứng nghiêng cho lớp phủ */
     animation: shine 3s infinite; /* Lặp lại hiệu ứng */
-  }
-  
-  @keyframes shine {
+    filter: blur(2px); /* Hiệu ứng mờ để trông như gương */
+    mix-blend-mode: screen; /* Tạo hiệu ứng sáng phản chiếu */
+}
+
+@keyframes shine {
     from {
-      left: -100%;
+        left: -100%;
     }
     to {
-      left: 100%;
+        left: 100%;
     }
-  }
-  
-  
-  .text-container {
+}
+
+.text-container {
     flex: 1; /* Chiếm không gian còn lại để đẩy nút xuống */
     display: flex;
     flex-direction: column;
@@ -107,14 +103,16 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
     text-align: center;
     padding-right: 10px;
     height: 100%;
-    margin-bottom:-100px;
-  }
-  #explorecollect{
-    margin-bottom:150px;
-  }
-  button {
-    background-color: rgb(200, 137, 137);
-    color: white;
+    margin-bottom: -100px;
+}
+
+#explorecollect {
+    margin-bottom: 150px;
+}
+
+button {
+    background-color: white;
+    color:black;
     font-size: 18px;
     padding: 10px 20px;
     border: none;
@@ -122,19 +120,18 @@ body, .home_banner, .sanpham, .danhmucproduct, .feedback, .main-container, .ship
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  
-  button:hover {
-    background-color: rgb(131, 69, 69);
+}
+
+button:hover {
+    background-color: black;
+    color:white;
     transform: scale(1.05);
-  }
-  
-  button:focus {
+}
+
+button:focus {
     outline: none;
-  }
-  
-  
+}
+
   .bold {
     font-weight: bold;
     font-size: 32px;

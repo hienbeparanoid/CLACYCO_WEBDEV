@@ -86,7 +86,7 @@ export class CustomizeProductListComponent implements OnInit {
   }
 
   goToProductDetail() {
-    this.router.navigate(['/customize-product-detail']);
+    this.router.navigate(['/customizing']);
   }
 
 }

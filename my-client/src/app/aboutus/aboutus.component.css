@@ -326,6 +326,7 @@
 }
 
   .start-shopping {
+    cursor: pointer;
     display: flex;
     align-items: flex-start;
     justify-content: center;

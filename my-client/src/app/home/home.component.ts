@@ -142,6 +142,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   toCustomize() {
+    window.scrollTo(0, 0); // Cuộn về đầu trang
     this.router.navigate(['/app-customization']);
   }
+  toWorkshop() {
+    window.scrollTo(0, 0); // Cuộn về đầu trang
+    this.router.navigate(['/workshop']);
+}
+
 }

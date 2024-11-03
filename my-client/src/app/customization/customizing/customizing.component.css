@@ -1,414 +1,353 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-* {
-  font-family: 'Montserrat', sans-serif; 
-}
-  
-  .main-container {
-    overflow: hidden;
-  }
-  
-  .main-container,
-  .main-container * {
-    box-sizing: border-box;
-  }
-  
-  input,
-  select,
-  textarea,
-  button {
-    outline: 0;
-  }
-  
-  .main-container {
-    position: relative;
-    width: 1440px;
-    height: 1122px;
-    margin: 0 auto;
-    font-size: 0px;
-    background: #ffffff;
-    overflow: hidden;
-  }
-  .donec-mug {
-    display: block;
-    position: relative;
-    height: 54px;
-    margin: 130px 0 0 56px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 39.008px;
-    text-align: left;
-    white-space: nowrap;
-    z-index: 1;
-  }
-  .price {
-    display: block;
-    position: relative;
-    height: 25px;
-    margin: 0 0 0 66px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24.38px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: 1px;
-    z-index: 2;
-  }
-  .flex-row-ec {
-    position: relative;
-    width: 1348px;
-    height: 740px;
-    margin: 38px 0 0 45px;
-    z-index: 21;
-  }
-  .crush-stone-mug {
-    position: absolute;
-    width: 886px;
-    height: 740px;
-    top: 0;
-    left: 0;
-    background: url(../../../assets/images/product_image.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 21;
-    border-radius: 10px;
-  }
-  .special-touch {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    width: 375px;
-    height: 57px;
-    top: 0;
-    left: 948px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24.38px;
-    text-align: left;
-    letter-spacing: 1px;
-    z-index: 3;
-  }
-  .word-count {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    width: 70px;
-    height: 23px;
-    top: 83px;
-    left: 1278px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 11px;
-    font-weight: 300;
-    line-height: 13.409px;
-    text-align: left;
-    letter-spacing: 0.55px;
-    z-index: 20;
-  }
-  /* .line {
-    position: absolute;
-    width: 392.005px;
-    height: 3px;
-    top: 102.018px;
-    left: 942.998px;
-    background: url(../../../assets/images/line_black.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 19;
-  } */
-  .inspiration {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    width: 381px;
-    height: 57px;
-    top: 132px;
-    left: 946px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24.38px;
-    text-align: left;
-    letter-spacing: 1px;
-    z-index: 4;
-  }
-  .upload-button {
-    position: absolute;
-    width: 396px;
-    height: 121px;
-    top: 203px;
-    left: 940px;
-    cursor: pointer;
-    background: #8aa3a0;
-    border: none;
-    z-index: 13;
-    border-radius: 10px;
-  }
-  .outlined-suggested-circle {
-    position: relative;
-    width: 49px;
-    height: 47px;
-    margin: 29px 0 0 185px;
-    background: url(../../../assets/images/upload_image.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 15;
-    overflow: hidden;
-  }
-  .drag-and-drop-here {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: relative;
-    width: 151px;
-    height: 36px;
-    margin: 9px 0 0 142px;
-    color: #d9d9d9;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 14.628px;
-    text-align: left;
-    letter-spacing: 0.6px;
-    z-index: 14;
-  }
-  .choose-the-position {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    height: 36px;
-    top: 354px;
-    left: 947px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24.38px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: 1px;
-    z-index: 5;
-  }
-  .droplist-position {
-    position: absolute;
-    width: 390px;
-    height: 50px;
-    top: 399px;
-    left: 945px;
-    background: #ffffff;
-    border: 2px solid #ffffff;
-    z-index: 9;
-    border-radius: 10px;
-  }
-  .position {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    height: 20px;
-    top: 3px;
-    left: 16px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 20px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: 1px;
-    z-index: 18;
-  }
-  .outlined-directions-chevron {
-    position: absolute;
-    width: 27px;
-    height: 23px;
-    top: 5px;
-    left: 339px;
-    z-index: 10;
-    overflow: hidden;
-  }
-  .vector {
-    position: relative;
-    width: 15.5px;
-    height: 7.75px;
-    margin: 7.625px 0 0 5.75px;
-    background: url(../../../assets/images/dropdown_button.png)
-      no-repeat center;
-    background-size: 100% 100%;
-    z-index: 11;
-  }
-  .special-details {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    height: 36px;
-    top: 464px;
-    left: 942px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24.38px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: 1px;
-    z-index: 6;
-  }
-  .rectangle {
-    position: absolute;
-    width: 390px;
-    height: 108px;
-    top: 500px;
-    left: 947px;
-    background: #ffffff;
-    border: 2px solid #8aa3a0;
-    z-index: 8;
-    border-radius: 10px;
-    font-size: 16px;
-  }
-  .button-customize {
-    position: absolute;
-    width: 411px;
-    height: 75px;
-    top: 636px;
-    left: 924px;
-    cursor: pointer;
-    background: #000000;
-    border: none;
-    z-index: 16;
-    border-radius: 30px;
-  }
-  .finish-add-cart {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: absolute;
-    width: 324px;
-    height: 40px;
-    top: 18px;
-    left: 46px;
-    color: #ffffff;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-    white-space: nowrap;
-    letter-spacing: 1.2px;
-    z-index: 17;
-  }
-  .button-customize-1 {
-    position: relative;
-    width: 430px;
-    height: 75px;
-    margin: -1px 0 0 965px;
-    cursor: pointer;
-    background: #d9d9d9;
-    border: none;
-    z-index: 7;
-    border-radius: 30px;
-  }
-  .other-requirements {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: absolute;
-    width: 391px;
-    height: 50px;
-    top: 13px;
-    left: 25px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24.38px;
-    text-align: left;
-    letter-spacing: 1px;
-    z-index: 7;
-  }
-  
-    .text-input {
-    position: absolute;
-    border: none;
-    border-bottom: 2px solid #000; /* Đường gạch ngang */
-    background: none;
-    width: 392.005px; /* Độ rộng ô input */
-    max-width: 400px; /* Tùy chỉnh lại theo ý */
-    font-size: 16px; /* Tùy chỉnh kích cỡ chữ */
-    padding: 5px 0;
-    color: #000;
-    outline: none; /* Loại bỏ viền outline khi click vào */
-    top: 70px;
-    left: 942.998px;
+
+.main-container {
+  overflow: hidden;
 }
 
-.text-input::placeholder {
-    color: #999; /* Màu placeholder nhạt hơn */
-    font-size: 14px;
+.main-container,
+.main-container * {
+  box-sizing: border-box;
 }
 
-.upload-notification {
+input,
+select,
+textarea,
+button {
+  outline: 0;
+}
+
+.main-container {
+  position: relative;
+  width: 1440px;
+  height: 1450px;
+  margin-left: 30px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.flex-row-ec {
+  position: relative;
+  width: 600px;
+  height: 543px;
+  margin: -20px 0 0 103px;
+  z-index: 35;
+}
+.image {
+  position: absolute;
+  width: 601px;
+  height: 543px;
+  top: -30px;
+  left: 700px;
+  background-image: url('/assets/images/90910ecc0696ad711ca0900a78a20ccf6fc663f8.png');
+  background-size: cover;
+  z-index: 35;
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Màu đen nhạt với độ trong suốt */
+  z-index: -1; /* Để nó nằm dưới nền */
+  border-radius: 50%; /* Tạo hiệu ứng vết loang tròn */
+  transform: scale(1.3); /* Phóng to để tạo hiệu ứng loang */
+}
+
+.donec-mug {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 116px;
+  top: 61px;
+  left: 0;
+  color: #000000;
+  font-family: Inter, var(--default-font-family);
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 116px;
+  text-align: left;
+  text-transform: capitalize;
+  white-space: nowrap;
+  z-index: 18;
+}
+.item-no-bq {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  width: 80px; /* Điều chỉnh width ở đây */
+  height: 100px;
+  top: 203px;
+  left: 1px;
+  color: black;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: JUSTIFY;
+  text-transform: capitalize;
+  white-space: nowrap;
+  z-index: 19;
+}
+
+.item-type-ceramic {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 27px;
+  top: 300px;
+  left: 1px;
+  color: gray;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  text-transform: capitalize;
+  white-space: nowrap;
+  z-index: 20;
+}
+.price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: absolute;
+  height: 72px;
+  top: 320px;
+  left: 1px;
+  color: #000000;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 72px;
+  text-align: left;
+  text-transform: capitalize;
+  white-space: nowrap;
+  z-index: 21;
+}
+.rectangle, .rectangle-1 {
+  position: absolute;
+  width: 212px;
+  height: 58px;
+  top: 420px;
+  background: #8aa3a0; /* hoặc #000000 cho .rectangle-1 */
+  z-index: 24;
+  border-radius: 20px;
+  display: flex;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  transition: transform 0.3s ease; /* Thêm hiệu ứng chuyển động */
+}
+
+.rectangle-1 {
+  background: #000000;
+  left: 257px;
+  z-index: 28;
+}
+
+.customize, .add-to-cart {
+  color: #ffffff;
+  font-family: Poppins, var(--default-font-family);
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+  white-space: nowrap;
+  cursor:pointer;
+}
+
+/* Hiệu ứng phóng to khi hover */
+.rectangle:hover, .rectangle-1:hover {
+  transform: scale(1.1); /* Phóng to 10% khi hover */
+}
+
+.arrow {
+  position: relative;
+  height: 75px;
+  margin: 34px 0 0 685px;
+
+    background-image: url('/assets/images/f8196498-f640-4d4a-b1bb-47f5bde134aa.png');
+
+  background-size: cover;
+  z-index: 34;
+}
+.make-your-own {
   display: block;
-  margin-top: 10px;
+  position: relative;
+  height: 50px;
+  margin: 30px 0 30px 250px;
+  color: #000000;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 48px; /* Tăng kích thước font chữ */
+  font-weight: 800; /* Làm chữ in đậm */
+  line-height: 1.6;
+  text-align: left;
+
+  text-transform: capitalize;
+}
+
+.choose-position {
+  display: block;
+  position: relative;
+  height: 31px;
+  margin: 60px 0 0 5px;
+  color: #000000;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.256px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.position-select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #8aa3a0;
+  border-radius: 42px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none; /* Ẩn mũi tên mặc định của select */
+  background-color: #ffffff;
+  font-family: Montserrat, sans-serif;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Thêm mũi tên tùy chỉnh cho select */
+.position-select::after {
+  content: '\25BC'; /* Mũi tên xuống */
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
   color: #8aa3a0;
 }
 
-.dropdown-checkbox {
-  display: none;
+/* Hiệu ứng khi focus và hover */
+.position-select:focus,
+.position-select:hover {
+  border-color: #5a5a5a;
+  box-shadow: 0px 0px 8px rgba(90, 90, 90, 0.3);
+  outline: none;
 }
 
-/* Label styling */
-.position-label {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ccc;
+.vector {
+  width: 30px;
+  height: 11.75px;
+  background-image: url('/assets/images/7f8014d2-9424-4894-b8f7-54cc5eb3a345.png');
+  background-size: 100% 100%;
   cursor: pointer;
+  margin-left: 880px;
+  margin-top: 20px;
 }
 
-/* Chevron icon */
-.outlined-directions-chevron {
-  margin-left: auto;
-  width: 10px;
-  height: 10px;
-  border: solid #666;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-/* Container for dropdown */
-.droplist-position {
-  width: 390px;
-}
-
-/* Style the select element */
-.position-select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  appearance: none; /* Remove default arrow for custom styling */
-  background-color: #fff;
-  cursor: pointer;
-  border: 2px solid #8aa3a0; 
-  border-radius: 10px;
-}
-
-/* Optional: Style for custom dropdown arrow */
-.position-select::after {
-  content: '▼';
+.dropdown-menu {
   position: absolute;
-  right: 10px;
-  pointer-events: none;
+  top: 60px;
+  left: 30px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #8aa3a0;
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 30px;
+  font-size: 16px;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Container for the form */
+.form-container {
+  width: 1000px;
+  margin-top: 100px;
+  margin-left:250px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover effect for the container */
+.form-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for form elements */
+.choose-position, .add-your-special, .upload-image, .special-details {
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: 20px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.input-box {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #8aa3a0;
+  border-radius: 42px;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus and hover effect for input fields */
+.input-box:focus {
+  border-color: #5a5a5a;
+  box-shadow: 0px 0px 8px rgba(90, 90, 90, 0.3);
+  outline: none;
+}
+
+/* Style for buttons */
+.rectangle-5 {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect for button */
+.rectangle-5:hover {
+  background-color: #333333;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for other requirements */
+.other-requirements-chat-with-us {
+  text-align: center;
+  font-family: Montserrat, sans-serif;
+  color: #000;
+  font-size: 18px;
+  margin-top: 15px;
 }

@@ -1,45 +1,48 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
 <div class="main-container">
-    <span class="donec-mug">Donec mug</span><span class="price">$ 30</span>
-    <div class="flex-row-ec">
-      <div class="crush-stone-mug"></div>
-      <span class="special-touch">Add your special touch, type your text!</span>
-      <div class="line"></div>
-      <input
-        type="text"
-        class="text-input"
-        maxlength="30"
-        placeholder="Type here"
-      />
-      <span class="word-count">6 words</span>
-      <span class="inspiration"
-        >Or wanna show us your inspiration, upload an image!</span>
-        <button class="upload-button" (click)="triggerFileInput()">
-          <div class="outlined-suggested-circle"></div>
-          <span class="drag-and-drop-here">Choose your image</span>
-        </button>
-        <input type="file" id="fileInput" accept="image/*" style="display: none;" (change)="handleFileUpload($event)">
-        <span class="upload-notification">{{ uploadNotification }}</span>
-      <span class="choose-the-position">Choose the position</span>
-      <div class="droplist-position">
-        <select class="position-select">
-            <option selected>In front of the item</option>
-            <option>Behind the item</option>
-            <option>Above the item</option>
-            <option>Below the item</option>
-            <option>Custom position</option>
-        </select>
+  <div class="flex-row-ec">
+    <div class="image"></div>
+    <span class="donec-mug">Donec mug</span>
+    <span class="item-no-bq">With a comfortable handle, smooth finish, and ideal capacity, <BR>this mug is perfect for all types of beverages — from coffee to tea. <BR>It’s also an ideal gift for loved ones, friends, or even yourself.</span
+    ><span class="item-type-ceramic">Item Type: Ceramic</span
+    ><span class="price">$30</span>
+    <div class="rectangle"><span class="add-to-cart" (click)="addToCart(cosmetic)">Add to Cart</span></div>
+    <div class="rectangle-1">
+      <span class="customize" (click)="scrollToForm()">Customize</span>
     </div>
-      <span class="special-details">Any special details?</span>
-      <textarea class="rectangle" placeholder="Enter special details here"></textarea>
-      <button class="button-customize" (click)="addToCart(cosmetic)">
-        <span class="finish-add-cart">Finish and add to cart</span>
-      </button>
+  </div>
+  <div class="form-container" id="formContainer">
+    <span class="make-your-own">Let make your own!</span>
+    <span class="choose-position">Choose the position</span>
+    <div class="droplist-position">
+      <select class="position-select">
+        <option selected>In front of the item</option>
+        <option>Behind the item</option>
+        <option>Above the item</option>
+        <option>Below the item</option>
+        <option>Custom position</option>
+    </select>
     </div>
-    <button class="button-customize-1">
-      <span class="other-requirements">Other requirements? Chat with us!</span>
+
+    
+    
+    
+    
+    <span class="add-your-special">Add your special touch, type your text!</span>
+    <input type="text" class="input-box" placeholder="e.g: Handcrafted, Personalized, Unique Design, Custom Color">
+
+    <span class="upload-image">Or wanna show us your inspiration, upload an image!</span>
+    <input type="file" class="input-box">
+
+    <span class="special-details">Any special details?</span>
+    <input type="text" class="input-box" placeholder="e.g: Gold trim, Extra cushioning, Eco-friendly materials, Engraved initials">
+
+    <button class="rectangle-5">
+      <span class="finish-add-to-cart" (click)="addToCart(cosmetic)">Finish and Add to Cart</span>
     </button>
-</div>
 
-
-
-
+    <div class="other-requirements-chat-with-us">
+      Other requirements? Chat with us via Email!
+    </div>
+  </div>
