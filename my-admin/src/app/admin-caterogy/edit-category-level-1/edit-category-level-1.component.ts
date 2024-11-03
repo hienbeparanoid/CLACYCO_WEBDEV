@@ -62,7 +62,7 @@ export class EditCategoryLevel1Component {
         this.errMessage = err;
       },
     });
-    alert("Sửa danh mục thành công!");
+    alert("Edit category sucessfully!");
     this.goBack();
   }
 

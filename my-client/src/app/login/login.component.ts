@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (!this.isPhoneNumberValid) {
-      alert('Vui lòng nhập đúng số điện thoại');
+      alert('Please enter a valid phone number');
       return;
     } else {
       this.authService.login(this.phonenumber, this.password).subscribe(
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
             this.authService.deleteCookie('password');
           }
 
-          alert('Đăng nhập thành công!');
+          alert('Login successfully!');
           this.router.navigate(['/'], { relativeTo: this.route });
         },
         (error) => {

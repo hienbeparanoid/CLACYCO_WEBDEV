@@ -106,11 +106,11 @@ export class SignUpComponent {
       this._customerService.postCustomer(this.customer).subscribe({
         next: (data) => {
           this.customer = data;
-          alert('Đăng ký thành công');
+          alert('Register successfully');
         },
         error: (err) => {
           this.errMessage = err;
-          alert('Đăng ký không thành công');
+          alert('Register failed');
         }
       });
     }
@@ -137,7 +137,7 @@ export class SignUpComponent {
       return;
     } else {
       if (passwordInput.value.length < 6) {
-        alert('Mật khẩu phải từ 6 kí tự trở lên');
+        alert('Password must be at least 6 characters long');
       }
     }
   }
@@ -147,7 +147,7 @@ export class SignUpComponent {
       this.confirmPasswordInput = true;
     } else {
       if (this.account.password !== this.confirmPassword) {
-        alert('Mật khẩu không khớp');
+        alert('Password does not match.');
         return;
       }
     }

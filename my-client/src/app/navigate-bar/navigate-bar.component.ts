@@ -57,7 +57,7 @@ export class NavigateBarComponent implements OnInit {
   }
 
   logOut() {
-    const confirmed = confirm('Bạn có muốn đăng xuất không?');
+    const confirmed = confirm('You want to log out?');
     if (confirmed) {
       sessionStorage.removeItem('CurrentUser');
       this.router.navigate(['/']);

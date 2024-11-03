@@ -25,16 +25,16 @@ export class SignupOtpComponent {
   }
 
   resend() {
-    alert('Đã gửi lại mã xác nhận!')
+    alert('Verification code has been resent.!')
   }
 
   onComplete() {
     if (this.isVerificationCodeValid === false) {
-      alert('Vui lòng nhập đúng mã xác nhận!');
+      alert('Please enter the correct verification code!');
       return false;
     }
     else if (this.verificationCode.trim().length === 0) {
-      alert('Vui lòng nhập mã xác nhận!');
+      alert('Please enter the verification code!');
       return false;
     }
     else {
