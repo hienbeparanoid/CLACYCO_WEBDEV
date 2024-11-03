@@ -39,13 +39,15 @@
   .rectangle {
     position: absolute;
     width: 1440px;
-    height: 399px;
+    height: 470px;
     top: 0;
     left: 0;
     background: url(../../assets/images/bg-blog.png)
       no-repeat center;
     background-size: cover;
     z-index: 3;
+    border-radius: 10px;
+    
   }
   .flex-column-a {
     position: absolute;
@@ -54,42 +56,49 @@
     right: 29px;
     left: 38px;
     font-size: 0px;
-    z-index: 28;
+    z-index: 28;  
   }
-  .our-blog {
+
+  .glass-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 270px;
-    height: 62px;
-    margin: 0 0 0 540px;
-    color: #bce5e0;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 61.6px;
-    text-align: center;
-    white-space: nowrap;
-    letter-spacing: -0.56px;
-    z-index: 4;
-  }
-  .browse-garments {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
-    width: 511px;
-    height: 55px;
-    margin: 43px 0 0 370px;
-    color: #ffffff;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
-    text-align: center;
-    z-index: 5;
-  }
+    width: 600px; 
+    height: 200px;
+    padding: 20px; 
+    margin: 50px auto; 
+    margin-top: 5px;
+    
+    /* Glassmorphism styling */
+    background: rgba(255, 255, 255, 0.15); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(20px); 
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+}
+.our-blog {
+  color: rgb(0, 0, 0);
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 61.6px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.56px;
+  margin-bottom: 20px; /* Khoảng cách giữa hai dòng */
+}
+
+.browse-garments {
+  color: white ;
+  font-family: Montserrat, var(--default-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+}
+  
   .heading {
     display: flex;
     flex-direction: column;
@@ -97,7 +106,7 @@
     flex-wrap: nowrap;
     position: relative;
     width: 644px;
-    margin: 229px 0 0 63px;
+    margin: 180px 0 0 63px;
     z-index: 15;
   }
   .browse-posts-topic {
