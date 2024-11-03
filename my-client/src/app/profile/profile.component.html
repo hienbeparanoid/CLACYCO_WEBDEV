@@ -243,12 +243,12 @@
 
     <!-- Order history content -->
     <div class="box__content--value" *ngIf="id === 'orderhistory'">
-      <h2>Order history</h2>
+      <h2 class="orderhistorytitle">Order history</h2>
       <div class="box__order">
         <div class="box__history--order" *ngFor="let item of cusOrders.reverse()">
           <div class="box__history--order--title">
-            <h3>
-              Order Date: {{ item.OrderDate}}
+            <h3 style="color:black">
+              Order Date: <span>{{ item.OrderDate }}</span>
               <span class="completed">{{ item.Status }}</span>
             </h3>
             <button (click)="viewOrderDetail(item._id)">View details</button>
