@@ -18,7 +18,7 @@
     <ul class="box__menu">
       <li id="address" [class.active]="id === 'address'" (click)="tabChange('address')">
         <span class="material-symbols-outlined"> account_box </span>
-        <span style="color: white;">Personal information</span>
+        <span style="color: white; font-weight: bold;">Personal information</span>
         <span class="material-symbols-outlined next"> navigate_next </span>
       </li>
       <li id="orderhistory" [class.active]="id === 'orderhistory'" (click)="tabChange('orderhistory')">
@@ -33,7 +33,7 @@
     <!-- Hiển thị thông tin -->
     <div class="box__content--value" *ngIf="id === 'address'">
       <div class="box__value--person">
-        <h3>Personal information</h3>
+        <h3 style="color: black; font-weight: bold;">Personal information</h3>
         <div class="box__value--person-content" *ngIf="!editing">
           <div class="box__content--imginfor">
             <img src="{{customer.Image}}" class="img-avt" />
@@ -62,8 +62,11 @@
                   <li>{{ customer.Mail }}</li>
                 </ul>
               </div>
-              <button (click)="edit()">Edit</button>
-            </div>
+              <button (click)="edit()" 
+              style="background-color: black;CURSOR:POINTER; color: white; border-radius: 20px; padding: 10px 20px; border: none; font-weight: bold; transition: transform 0.3s ease;">
+        Edit
+      </button>            
+    </div>
           </div>
         </div>
         <!--Form edit infor  -->
@@ -84,8 +87,13 @@
                 <ul>
                   <li>Full name:</li>
                   <li>
-                    <input [(ngModel)]="customer.CustomerName" required />
-                  </li>
+                    <input 
+                    [(ngModel)]="customer.CustomerName" 
+                    required 
+                    placeholder="Enter your full name" 
+                    class="custom-input" 
+                  />
+                                    </li>
                 </ul>
                 <ul>
                   <li>Gender:</li>
@@ -113,8 +121,8 @@
                 </ul>
               </div>
               <div class="edit__infor--button">
-                <button (click)="putCustomer()" (click)="saveInfor()">Update</button>
-                <button (click)="cancelEdit()">Cancel</button>
+                <button (click)="putCustomer()" (click)="saveInfor()" style="color: white; background-color: black;font-weight: bold;">Update</button>
+                <button (click)="cancelEdit()" style="color: black;">Cancel</button>
               </div>
             </div>
           </div>
@@ -122,7 +130,7 @@
       </div>
 
       <div class="box__value--address">
-        <h3>Shipping address</h3>
+        <h3 style="color: black; font-weight: bold;">Shipping address</h3>
         <!-- list address -->
         <div class="content__address">
           <!-- a address -->
@@ -134,8 +142,11 @@
                 <p>{{ customer.Phone }}</p>
               </div>
               <div class="address__function">
-                <button (click)="editAddress()">Edit</button>
-                <button>
+                <button (click)="editAddress()" 
+                style="background-color: black;cursor:pointer; color: white; border-radius: 20px; padding: 10px 20px; border: none; font-weight: bold; transition: transform 0.3s ease;">
+                  Edit
+                </button>
+                        <button>
                   <span class="material-symbols-outlined"> Delete</span>
                 </button>
               </div>
@@ -179,18 +190,18 @@
             <div class="address__content--row">
               <div class="address__row--top">
                 <label for="name">Recipient's name:
-                  <input type="text" id="name" [(ngModel)]="delivery.RecipientName" />
+                  <input type="text" id="name" [(ngModel)]="delivery.RecipientName" placeholder="Enter recipient's name" />
                   <span class="material">*</span>
                 </label>
                 <label for="phone">Recipient's phone:
-                  <input type="text" id="phone" [(ngModel)]="delivery.Phone" />
+                  <input type="text" id="phone" [(ngModel)]="delivery.Phone" placeholder="Enter your phone number" />
                   <span class="material">*</span>
                 </label>
               </div>
               <div class="address__row--bottom">
-                <label for="address">Shipping address:
+                <label for="shippingadd">Shipping address:
                   <div>
-                    <input type="text" id="address" [(ngModel)]="delivery.Address" />
+                    <input type="text" id="shippingadd" [(ngModel)]="delivery.Address" />
                     <span class="material">*</span>
                   </div>
                 </label>
@@ -200,8 +211,8 @@
               </label>
             </div>
             <div class="address__button--function">
-              <button (click)="postDelivery()">Save</button>
-              <button (click)="cancelAddress()">Cancel</button>
+              <button (click)="postDelivery()" style="color:white; background-color:black">Save</button>
+              <button (click)="cancelAddress()" style="color:black">Cancel</button>
             </div>
           </div>
           <!-- Div edit địa chỉ -->
@@ -213,30 +224,32 @@
                   <span class="material">*</span>
                 </label>
                 <label for="phone">Recipient's phone:
-                  <input type="text" if="phone" [(ngModel)]="customer.Phone" />
+                  <input type="text" id="phone" [(ngModel)]="customer.Phone" placeholder="Enter your phone number" />
                   <span class="material">*</span>
                 </label>
+                
               </div>
               <div class="address__row--bottom">
                 <label for="address">Shipping address:
                   <div>
-                    <input type="text" id="address" [(ngModel)]="delivery.Address" />
+                    <input type="text" id="address2" [(ngModel)]="delivery.Address" placeholder="Enter your shipping address" />
                     <span class="material">*</span>
                   </div>
                 </label>
+                
               </div>
               <label for="default">
                 <input type="radio" id="default" name="default" /> Set default address
               </label>
             </div>
             <div class="address__button--function">
-              <button (click)="saveEditAddress()" (click)="putDelivery()">Update</button>
-              <button (click)="cancelEditAddress()">Cancel</button>
+              <button (click)="saveEditAddress()" (click)="putDelivery()" style="color:white;background-color:black">Update</button>
+              <button (click)="cancelEditAddress()" style="color:black">Cancel</button>
             </div>
           </div>
         </div>
         <div class="address__add">
-          <input type="button" value="Add more address" (click)="addAddress()" class="button" id="button" />
+          <input   type="button" value="Add more address" (click)="addAddress()" class="button" id="addmoreadd" />
         </div>
       </div>
     </div>

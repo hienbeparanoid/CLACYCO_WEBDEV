@@ -86,19 +86,28 @@ export class CustomizingComponent implements OnInit {
     }
   }
 
-  addToCart(cos: any): void {
-    cos.quantity = 1;
-    this._service.addToCart(cos).subscribe(
-      (response: any) => {
-        console.log(response);
-        alert("Product added to cart successfully!");
-        window.location.reload();
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
+  addToCart(): void {
+    // Find the product by name in the cosmetics array
+    const productToAdd = this.cosmetics.find((cosmetic: any) => cosmetic.Name === 'Handcrafted Ceramic Serving Bowls');
+
+    if (productToAdd) {
+        // Set the quantity for the product
+        productToAdd.quantity = 1;
+
+        this._service.addToCart(productToAdd).subscribe(
+            (response: any) => {
+                console.log(response);
+                alert("Product added to cart successfully!");
+                window.location.reload();
+            },
+            (error: any) => {
+                console.log(error);
+            }
+        );
+    } else {
+        alert("Product not found!");
+    }
+}
 
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;

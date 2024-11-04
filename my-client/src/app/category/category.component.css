@@ -34,19 +34,19 @@
 
 .category-navigation .checklist.categories a {
     text-decoration: none;
-    color: #000;
+    color: WHITE;
     font-size: 16px;
 
 }
 
 .category-navigation a:hover {
-    color: white;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
 }
 
 .category-navigation .checklist.categories a:hover {
-    color: #8AA3A0;
+    color: #ffffff;
 
     font-weight: bold;
     cursor: pointer;
@@ -105,7 +105,7 @@
     transform: scale(1.05);
 }
 
-.product-item {
+ .product-item {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 12px;
@@ -113,13 +113,15 @@
     width: calc(10%);
     margin: 5px 15px;
     flex-grow: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for smooth scaling and shadow */
 }
 
 .product-item:hover {
     border: 1px solid #8AA3A0;
+    transform: scale(1.05); /* Slightly enlarge the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
     cursor: pointer;
 }
-
 .product-item--img img {
     width: 250px;
     height: 200px;
@@ -133,16 +135,17 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    COLOR:black;
 }
 
 .product-item--price {
     font-weight: bold;
-    color: #8AA3A0;
+    color: black;
     margin: 0 0 8px 0;
 }
 
 .product-item--add {
-    background-color: #8AA3A0;
+    background-color: BLACK;
     margin-top: 10px;
     margin-bottom: 5px;
     color: white;

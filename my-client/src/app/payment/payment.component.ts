@@ -96,13 +96,13 @@ export class PaymentComponent implements OnInit {
   }
   applyDiscountCode() {
     switch (this.discountCode) {
-      case 'WELCOME_10':
+      case 'WELCOME_NEW':
         this.discountPrice = this.totalPrice * 0.10; // giảm 10%
         break;
-      case 'XMAS_BEAURITY':
+      case 'gold_levelup':
         this.discountPrice = this.totalPrice * 0.12; // giảm 12%
         break;
-      case 'BEAURITY_23':
+      case 'diamond_levelup':
         this.discountPrice = this.totalPrice * 0.23; // giảm 23%
         break;
       default:

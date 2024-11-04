@@ -116,7 +116,7 @@ export class ProductDetailComponent {
     this._service.addToCart(cos).subscribe(
       (response) => {
         console.log(response);
-        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        alert("Product added to cart successfully");
         window.location.reload();
         // Thêm sản phẩm vào giỏ hàng thành công
       },
@@ -177,7 +177,7 @@ export class ProductDetailComponent {
     this._service.addToCart(cos).subscribe(
       (response: any) => {
         console.log(response);
-        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        alert("Product added to cart successfully");
         window.location.reload();
         // Thêm sản phẩm vào giỏ hàng thành công
       },

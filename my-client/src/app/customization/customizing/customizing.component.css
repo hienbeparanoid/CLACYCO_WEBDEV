@@ -1,4 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+*{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif; 
+}
 
 .main-container {
   overflow: hidden;
@@ -33,11 +37,11 @@ button {
 }
 .image {
   position: absolute;
-  width: 601px;
-  height: 543px;
+  width: 600px;
+  height: 400px;
   top: -30px;
   left: 700px;
-  background-image: url('/assets/images/90910ecc0696ad711ca0900a78a20ccf6fc663f8.png');
+  background-image: url('/assets/images/Serving_bowl.jpg');
   background-size: cover;
   z-index: 35;
 }
@@ -350,4 +354,13 @@ button {
   color: #000;
   font-size: 18px;
   margin-top: 15px;
+}
+
+.email-link {
+  color: black; /* Hoặc màu bạn muốn */
+  text-decoration: none; /* Xóa gạch chân */
+}
+
+.email-link:hover {
+  text-decoration: underline; /* Thêm gạch chân khi hover, tùy chọn */
 }

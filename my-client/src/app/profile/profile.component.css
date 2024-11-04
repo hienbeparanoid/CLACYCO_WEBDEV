@@ -116,6 +116,7 @@
 .material-symbols-outlined {
     color: white;
     float: right;
+    margin-top:6px;
     margin-right: 1px;
     position: relative;
     top: -2px; /* Điều chỉnh giá trị này để di chuyển icon lên hoặc xuống */
@@ -233,9 +234,90 @@
     position: relative;
     float: right;
 }
-
+.content__infor--detail {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    margin-bottom: 10px;
+    margin-right: 100px;
+  }
+  
+  .content__infor--detail ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+  
+  .content__infor--detail ul li:nth-child(1) {
+    font-weight: bold;
+    width: 115px;
+    height: 10px;
+    margin-right: 7px;
+  }
+  
+  .content__infor--detail ul li:nth-child(2) {
+    position: relative;
+    float: right;
+    width: fit-content;
+    height: 15px;
+  }
+  
+  /* Style for input fields with rounded corners and focus effect */
+  .content__infor--detail input[type="text"],
+  .content__infor--detail input[type="date"],
+  .content__infor--detail input[type="email"],
+  .content__infor--detail input[type="radio"] {
+    width: 100%; /* Ensures inputs are responsive */
+    padding: 10px; /* Add some padding for better appearance */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light gray border */
+    outline: none; /* Remove outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    background-color: #f9f9f9; /* Light background for input fields */
+  }
+  
+  /* Hover effect for input fields */
+  .content__infor--detail input:hover {
+    border-color: #8AA3A0; /* Change border color on hover */
+  }
+  
+  /* Focus effect to show when the input is active */
+  .content__infor--detail input:focus {
+    border-color: #8AA3A0; /* Highlighted border color */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Soft shadow effect */
+    background-color: #ffffff; /* Brighter background on focus */
+  }
+  
+  /* Specific styling for radio buttons to match other inputs */
+  .content__infor--detail input[type="radio"] {
+    width: auto; /* Adjust radio button size */
+    margin-right: 5px; /* Add some space after radio buttons */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
 input[type="file"] {
     display: none;
+}
+.custom-input {
+  width: 100%; /* Đảm bảo ô input là responsive */
+  padding: 10px; /* Thêm padding cho ô nhập */
+  border-radius: 10px; /* Bo tròn góc */
+  border: 1px solid #ccc; /* Viền màu xám nhạt */
+  outline: none; /* Loại bỏ viền khi ô được chọn */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+  background-color: #f9f9f9; /* Màu nền sáng cho ô nhập */
+}
+
+/* Hiệu ứng hover cho ô input */
+.custom-input:hover {
+  border-color: #8AA3A0; /* Đổi màu viền khi hover */
+}
+
+/* Hiệu ứng focus khi ô input được chọn */
+.custom-input:focus {
+  border-color: #8AA3A0; /* Màu viền nổi bật khi focus */
+  box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+  background-color: #ffffff; /* Màu nền sáng hơn khi focus */
 }
 
 .content__img--avt {
@@ -245,7 +327,13 @@ input[type="file"] {
     display: flex;
     justify-content: flex-end;
 }
-
+button:hover {
+    transform: scale(1.1);
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+    
 .content__img--avt label {
     cursor: pointer;
     position: absolute;
@@ -264,6 +352,110 @@ input[type="file"] {
     color: #FFFFFF;
     margin: 0%;
     align-self: center
+}
+#name {
+    width: 100%; /* Đảm bảo ô input đáp ứng */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền màu xám nhạt */
+    outline: none; /* Xóa viền ngoài */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+    background-color: #f9f9f9; /* Nền sáng cho ô input */
+  }
+  
+  /* Hiệu ứng hover cho ô input */
+  #name:hover {
+    border-color: #8AA3A0; /* Đổi màu viền khi hover */
+  }
+  
+  /* Hiệu ứng focus để chỉ ra khi ô input đang hoạt động */
+  #name:focus {
+    border-color: #8AA3A0; /* Màu viền nổi bật */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+    background-color: #ffffff; /* Nền sáng hơn khi focus */
+  }
+  .input-container {
+    margin-bottom: 20px; /* Khoảng cách giữa các ô nhập */
+  }
+  
+  #phone {
+    width: 100%; /* Đảm bảo ô input đáp ứng */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    border: 1px solid #ccc; /* Viền màu xám nhạt */
+    outline: none; /* Xóa viền ngoài */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+    background-color: #f9f9f9; /* Nền sáng cho ô input */
+  }
+  
+  /* Hiệu ứng hover cho ô input */
+  #phone:hover {
+    border-color: #8AA3A0; /* Đổi màu viền khi hover */
+  }
+  
+  /* Hiệu ứng focus để chỉ ra khi ô input đang hoạt động */
+  #phone:focus {
+    border-color: #8AA3A0; /* Màu viền nổi bật */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+    background-color: #ffffff; /* Nền sáng hơn khi focus */
+  }
+  
+  #address {
+    width: 260px; /* Đảm bảo ô input đáp ứng */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    outline: none; /* Xóa viền ngoài */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+}
+#address:hover {
+    border-color: #8AA3A0; /* Đổi màu viền khi hover */
+}
+
+/* Hiệu ứng focus để chỉ ra khi ô input đang hoạt động */
+#address:focus {
+    border-color: #8AA3A0; /* Màu viền nổi bật */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+    background-color: #ffffff; /* Nền sáng hơn khi focus */
+}
+
+#shippingadd {
+    width: 660px; /* Tăng chiều rộng của ô input */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    outline: none; /* Xóa viền ngoài */
+    border: none; /* Loại bỏ viền */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+}
+
+
+#shippingadd:hover {
+    border-color: #8AA3A0; /* Đổi màu viền khi hover */
+}
+
+#shippingadd:focus {
+    border-color: #8AA3A0; /* Màu viền nổi bật */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+    background-color: #ffffff; /* Nền sáng hơn khi focus */
+}
+
+#address2 {
+    width: 660px; /* Tăng chiều rộng của ô input */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    border-radius: 10px; /* Bo tròn góc */
+    outline: none; /* Xóa viền ngoài */
+    border: none; /* Loại bỏ viền */
+    transition: box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp mượt mà */
+}
+
+
+#address2:hover {
+    border-color: #8AA3A0; /* Đổi màu viền khi hover */
+}
+
+#address2:focus {
+    border-color: #8AA3A0; /* Màu viền nổi bật */
+    box-shadow: 0 0 5px rgba(138, 163, 160, 0.4); /* Hiệu ứng bóng đổ nhẹ */
+    background-color: #ffffff; /* Nền sáng hơn khi focus */
 }
 
 .content__img--avt label .material-symbols-outlined {
@@ -380,7 +572,7 @@ input[type="file"] {
         'wght' 600,
         'GRAD' -25,
         'opsz' 48;
-    color: #8AA3A0;
+    color: red;
 }
 
 .address__add {
@@ -391,14 +583,25 @@ input[type="file"] {
 .address__add input {
     width: 150px;
     color: #FFFFFF;
-    background: #8AA3A0 !important;
-    border-radius: 10px;
+    background: black !important;
+    border-radius: 20px;
     font-weight: 400;
     border: none;
-    height: 30px;
-
-
+    height: 40px; /* Tăng chiều cao để chữ canh giữa */
+    text-align: center;
+    display: inline-flex; /* Đảm bảo văn bản nằm giữa */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Hiệu ứng hover */
+.address__add input:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 .address__content--row {
     width: max-content;

@@ -59,7 +59,7 @@ export class DealsComponent implements OnInit, OnDestroy {
     this._service.addToCart(cos).subscribe(
       (response: any) => {
         console.log(response);
-        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        alert("Add product to cart successfully");
         window.location.reload();
       },
       (error: any) => {

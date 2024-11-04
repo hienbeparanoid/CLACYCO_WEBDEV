@@ -33,7 +33,7 @@
 
 .category-navigation .checklist.categories a {
     text-decoration: none;
-    color: #000;
+    color: white;
     font-size: 16px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .category-navigation .checklist.categories a:hover {
-    color: #8AA3A0;
+    color: #ffffff;
     font-weight: bold;
     cursor: pointer;
 }
@@ -101,19 +101,21 @@
     cursor: pointer;
     transform: scale(1.05);
 }
-
 .product-item {
     box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 1px solid #8AA3A0 ;
     border-radius: 12px;
     padding: 10px 0px;
     width: calc(10%);
     margin: 5px 15px;
     flex-grow: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for smooth scaling and shadow */
 }
 
 .product-item:hover {
     border: 1px solid #8AA3A0;
+    transform: scale(1.05); /* Slightly enlarge the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
     cursor: pointer;
 }
 
@@ -130,16 +132,17 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color:black
 }
 
 .product-item--price {
     font-weight: bold;
-    color: #8AA3A0;
+    color: black;
     margin: 0 0 8px 0;
 }
 
 .product-item--add {
-    background-color: #8AA3A0;
+    background-color: black;
     margin-top: 10px;
     margin-bottom: 5px;
     color: white;
@@ -149,8 +152,13 @@
     width: 50%;
     height: 30px;
     font-size: 13px;
-    transition: opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for scaling */
 }
+
+.product-item--add:hover {
+    transform: scale(1.1); /* Enlarges the button slightly on hover */
+}
+
 
 .button-container {
     display: flex;

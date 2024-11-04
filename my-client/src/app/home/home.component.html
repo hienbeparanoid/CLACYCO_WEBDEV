@@ -37,22 +37,6 @@
   <br />
 </div>
 
-<!--SECTION 3-->
-<div class="danhmucproduct">
-  <div class="product" *ngFor="let cosmetic of cosmetics | slice:0:5">
-    <div class="product-item">
-      <div (click)="viewCosmeticDetail(cosmetic)">
-        <div class="product-item--img">
-          <img src="{{ cosmetic.Image }}" style="width: 180px;">
-        </div>
-        <p class="product-item--info">{{ cosmetic.Name }}</p>
-        <p class="product-item--price">{{ cosmetic.Price }} $</p>
-      </div>
-      <button class="product-item--add" (click)="addToCart(cosmetic)">Add to cart</button>
-    </div>
-  </div>
-</div>
-
 <!--SECTION 4-->
 <p style="font-weight: bold; font-size: 30px; color: BLACK; text-align: center;">TOP-SELLER PRODUCTS</p>
 <div class="danhmucproduct">
@@ -62,7 +46,7 @@
         <div class="product-item--img">
           <img src="{{ cosmetic.Image }}" style="width: 180px;">
         </div>
-        <p class="product-item--info">{{ cosmetic.Name }}</p>
+        <p class="product-item--info"  style="COLOR:BLACK;FONT-STYLE:UPPERCASE">{{ cosmetic.Name }}</p>
         <p class="product-item--price">{{ cosmetic.Price }} $</p>
       </div>
       <button class="product-item--add" (click)="addToCart(cosmetic)">Add to cart</button>
@@ -85,8 +69,7 @@
     <div align="justify">
       <br />
       <a style="line-height: 1.6; display: block; text-align: justify;">
-        With affordable prices that suit the budget of most customers, high-quality products made entirely in Vietnam, Beaurity deserves to be one of the Vietnamese brands that are helping to close the gap with the global cosmetics market. In addition to good quality and reasonable prices, I greatly appreciate the brand's efforts to contribute to the community, especially in matters of environmental protection, green living, and vegan cosmetics that are not tested on animals.
-        <br>
+        With reasonably priced, high-quality ceramics, flowers, and plants crafted entirely in Vietnam, ClayCo is emerging as one of the standout local brands bridging the gap with the global home decor market. Beyond product quality and affordability, I deeply value the brand's commitment to the community, especially its focus on eco-friendly practices, promoting green living, and providing sustainable, ethically sourced products.        <br>
         <BR>
         <span style="font-style: italic;">David Nguyen | CEO of Star Sky Company</span>
       </a>

@@ -11,7 +11,9 @@ import { CategoryService } from '../../SERVICES/category.service';
 })
 export class CustomizeProductListComponent implements OnInit {
   selectedCategory: string = '';
-  categories: any[] | undefined;
+  allowedCategories = ['Ceramic/ Pot', 'Ceramic/ Bowls', 'Ceramic/ Teapot']; // Specify initial categories
+  categories!: { Name: string }[];
+  filteredCategories!: { Name: string }[];
   cosmetics: any;
   cosmetic = new Cosmetics();
   errMessage: string = '';
@@ -32,7 +34,22 @@ export class CustomizeProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadData();
+    this.categories = [
+      { Name: 'Ceramic/ Pot' },
+      { Name: 'Ceramic/ Bowls' },
+      { Name: 'Ceramic/ Teapot' },
+      { Name: 'Ceramic/ Plate' },
+      { Name: 'Ceramic/ Planter' }
+    ];
+    this.filteredCategories = this.categories.filter(category => this.isCategoryAllowed(category));
+  }
+
+  isCategoryAllowed(category: { Name: string }): boolean {
+    return this.allowedCategories.includes(category.Name);
+  }
+
+  selectCategory(categoryName: string): void {
+    this.selectedCategory = categoryName;
   }
 
   loadData(): void {
@@ -48,6 +65,7 @@ export class CustomizeProductListComponent implements OnInit {
     this._fs.getCategories().subscribe({
       next: (data) => {
         this.categories = data;
+        this.filteredCategories = this.categories.filter(category => this.isCategoryAllowed(category));
       },
       error: (err) => {
         this.errMessage = err;
@@ -56,11 +74,17 @@ export class CustomizeProductListComponent implements OnInit {
   }
 
   filterCosmetics(): any[] {
-    return this.selectedCategory === '' ? this.cosmetics : this.cosmetics.filter((cosmetic: any) => cosmetic.Category === this.selectedCategory);
-  }
-
-  selectCategory(category: string): void {
-    this.selectedCategory = category;
+    if (this.selectedCategory === '') {
+      // If no specific category is selected, show only products from allowed categories
+      return this.cosmetics.filter((cosmetic: any) =>
+        this.allowedCategories.includes(cosmetic.Category)
+      );
+    } else {
+      // Show products from the selected category
+      return this.cosmetics.filter((cosmetic: any) =>
+        cosmetic.Category === this.selectedCategory
+      );
+    }
   }
 
   viewCosmeticDetail(f: any) {
@@ -69,25 +93,7 @@ export class CustomizeProductListComponent implements OnInit {
     });
   }
 
-  addToCart(cos: any): void {
-    cos.quantity = 1;
-    this._service.addToCart(cos).subscribe(
-      (response: any) => {
-        console.log(response);
-        alert("Product added to cart successfully!");
-        window.location.reload();
-        // Thêm sản phẩm vào giỏ hàng thành công
-      },
-      (error: any) => {
-        console.log(error);
-        // Xảy ra lỗi khi thêm sản phẩm vào giỏ hàng
-      }
-    );
-  }
-
   goToProductDetail() {
     this.router.navigate(['/customizing']);
   }
-
 }
-
