@@ -269,15 +269,15 @@
 
           <div class="box__history--listproduct">
             <div class="cart__main">
-              <div class="cart__main-row" *ngFor="let cosmetic of item.OrderCosmetic">
+              <div class="cart__main-row" *ngFor="let product of item.OrderProduct">
                 <div class="cart__main-row--product">
                   <div class="cart__main-row--product-img">
-                    <img src="{{ cosmetic.Image }}" alt="" />
+                    <img src="{{ product.Image }}" alt="" />
                   </div>
-                  <p class="cart__main-row--product-info">{{ cosmetic.Name }}</p>
+                  <p class="cart__main-row--product-info">{{ product.Name }}</p>
                 </div>
-                <p class="cart__main-row--price">{{ cosmetic.Price }} USD</p>
-                <p class="cart__main-row--quantity">{{ cosmetic.quantity }}</p>
+                <p class="cart__main-row--price">{{ product.Price }} USD</p>
+                <p class="cart__main-row--quantity">{{ product.quantity }}</p>
               </div>
             </div>
           </div>

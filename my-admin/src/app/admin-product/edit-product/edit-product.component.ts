@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cosmetics } from 'src/app/interfaces/cosmetics';
-import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
+import { Products } from 'src/app/interfaces/products';
+import { AdminProductService } from 'src/app/services/admin-product.service';
 import { AdminCategoryService } from 'src/app/services/admin-category.service';
 @Component({
   selector: 'app-edit-product',
@@ -9,12 +9,12 @@ import { AdminCategoryService } from 'src/app/services/admin-category.service';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent {
-  cosmetics: any;
+  products: any;
   categories: any
-  cosmetic = new Cosmetics();
+  product = new Products();
   errMessage: string = '';
 
-  constructor(public _service: AdminCosmeticService,
+  constructor(public _service: AdminProductService,
     public _fs: AdminCategoryService,
     private router: Router,
     private activateRoute: ActivatedRoute) 
@@ -22,14 +22,14 @@ export class EditProductComponent {
     activateRoute.paramMap.subscribe((param) => {
       let id = param.get('id');
       if (id != null) {
-        this.searchCosmetic(id);
+        this.searchProduct(id);
       }
     });
 
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -46,13 +46,13 @@ export class EditProductComponent {
     });
   }
 
-  public setCosmetic(f: Cosmetics) {
-    this.cosmetic = f;
+  public setProduct(f: Products) {
+    this.product = f;
   }
-  searchCosmetic(_id: string) {
-    this._service.getCosmetic(_id).subscribe({
+  searchProduct(_id: string) {
+    this._service.getProduct(_id).subscribe({
       next: (data) => {
-        this.cosmetic = data;
+        this.product = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -60,9 +60,9 @@ export class EditProductComponent {
     });
   }
 
-  putCosmetic() {
-    this._service.putCosmetic(this.cosmetic).subscribe({
-      next: (data) => { this.cosmetic = data },
+  putProduct() {
+    this._service.putProduct(this.product).subscribe({
+      next: (data) => { this.product = data },
       error: (err) => { this.errMessage = err }
     }),
     alert("Edit product successfully!")
@@ -73,13 +73,13 @@ export class EditProductComponent {
     this.router.navigate(['product-management']);
   }
 
-  onFileSelected(event: any, cosmetic: Cosmetics) {
+  onFileSelected(event: any, product: Products) {
     let me = this;
     let file = event.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
-      cosmetic.Image = reader.result!.toString();
+      product.Image = reader.result!.toString();
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);

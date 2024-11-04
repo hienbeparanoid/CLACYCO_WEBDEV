@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cosmetics } from '../../Interfaces/Cosmetic';
-import { CosmeticService } from '../../SERVICES/cosmetic.service';
+import { Products } from '../../Interfaces/Products';
+import { ProductsService } from '../../SERVICES/product.service';
 import { CategoryService } from '../../SERVICES/category.service';
 
 @Component({
@@ -12,8 +12,8 @@ import { CategoryService } from '../../SERVICES/category.service';
 export class CustomizingComponent implements OnInit {
   selectedCategory: string = '';
   categories: any[] | undefined;
-  cosmetics: any;
-  cosmetic = new Cosmetics();
+  products: any;
+  product = new Products();
   errMessage: string = '';
   inputText: string = '';
   wordCount: number = 0;
@@ -24,7 +24,7 @@ export class CustomizingComponent implements OnInit {
 
   @ViewChild('scrollArrow') scrollArrow!: ElementRef; // Khai báo ViewChild
   constructor(
-    public _service: CosmeticService,
+    public _service: ProductsService,
     public _fs: CategoryService,
     private router: Router,
     private activateRoute: ActivatedRoute,
@@ -44,9 +44,9 @@ export class CustomizingComponent implements OnInit {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -87,8 +87,8 @@ export class CustomizingComponent implements OnInit {
   }
 
   addToCart(): void {
-    // Find the product by name in the cosmetics array
-    const productToAdd = this.cosmetics.find((cosmetic: any) => cosmetic.Name === 'Handcrafted Ceramic Serving Bowls');
+    // Find the product by name in the products array
+    const productToAdd = this.products.find((product: any) => product.Name === 'Handcrafted Ceramic Serving Bowls');
 
     if (productToAdd) {
         // Set the quantity for the product

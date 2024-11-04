@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, VERSION } from '@angular/core';
-import { AdminCosmeticService } from '../services/admin-cosmetic.service';
+import { AdminProductService } from '../services/admin-product.service';
 import { AdminCategoryService } from '../services/admin-category.service';
 import { AdminCustomerService } from '../services/admin-customer.service';
 import { AdminOrderService } from '../services/admin-order.service';
@@ -14,9 +14,9 @@ export class AdminHomeComponent {
   totalCategories: number = 234;
   totalCustomers: number = 567;
   totalOrders: number = 890;
-  totalCosmetics: number = 0;
+  totalProducts: number = 0;
   totalUncompletedOrders: number = 0;
-  cosmetics: any;
+  products: any;
   categories: any;
   customers: any;
 
@@ -27,15 +27,15 @@ export class AdminHomeComponent {
   chart: any;
 
   constructor(
-    public _service: AdminCosmeticService,
+    public _service: AdminProductService,
     public category_service: AdminCategoryService,
     public customer_service: AdminCustomerService,
     public order_service: AdminOrderService
   ) {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -84,10 +84,10 @@ export class AdminHomeComponent {
   }
 
   ngOnInit() {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
 
         // Gọi hàm tạo biểu đồ sau khi có dữ liệu
         this.createChart();
@@ -100,7 +100,7 @@ export class AdminHomeComponent {
   }
 
   getUniqueCategories() {
-    const uniqueCategories = Array.from(new Set(this.cosmetics.map((cosmetic: { categoryId: any; }) => cosmetic.categoryId)));
+    const uniqueCategories = Array.from(new Set(this.products.map((product: { categoryId: any; }) => product.categoryId)));
     return uniqueCategories;
   }
 
@@ -186,8 +186,8 @@ export class AdminHomeComponent {
   }
 
 
-  totalCosmetic(data: any) {
-    return this.totalCosmetics = data.length;
+  totalProduct(data: any) {
+    return this.totalProducts = data.length;
   }
 
   totalCategory(data: any) {

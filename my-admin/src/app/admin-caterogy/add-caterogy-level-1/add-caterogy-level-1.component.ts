@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/interfaces/category';
-import { Cosmetics } from 'src/app/interfaces/cosmetics';
+import { Products } from 'src/app/interfaces/products';
 import { AdminCategoryService } from 'src/app/services/admin-category.service';
-import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
+import { AdminProductService } from 'src/app/services/admin-product.service';
 
 @Component({
   selector: 'app-add-caterogy-level-1',

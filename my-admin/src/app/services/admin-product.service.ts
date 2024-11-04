@@ -1,15 +1,15 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, retry, catchError, throwError } from 'rxjs';
-import { Cosmetics } from '../interfaces/cosmetics';
+import { Products } from '../interfaces/products';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminCosmeticService {
+export class AdminProductService {
   [x: string]: any;
   constructor(private _http: HttpClient) { }
-  getCosmetics(): Observable<any> {
+  getProducts(): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -18,8 +18,8 @@ export class AdminCosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics', requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.get<any>('/products', requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError)
     );
@@ -28,7 +28,7 @@ export class AdminCosmeticService {
     return throwError(() => new Error(error.message));
   }
 
-  getCosmetic(cosmeticId: string): Observable<any> {
+  getProduct(ProductId: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -37,14 +37,14 @@ export class AdminCosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics/detail/' + cosmeticId, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Cosmetics),
+    return this._http.get<any>('/products/detail/' + ProductId, requestOptions).pipe(
+      map((res) => JSON.parse(res) as Products),
       retry(3),
       catchError(this.handleError)
     );
   }
 
-  getCosmeticCategory(category: string): Observable<any> {
+  getProductCategory(category: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -53,13 +53,13 @@ export class AdminCosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics/' + category, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.get<any>('/products/' + category, requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError)
     );
   }
-  getCosmeticSubCategory(category: string, subcategory: string): Observable<any> {
+  getProductSubCategory(category: string, subcategory: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8  '
@@ -68,14 +68,14 @@ export class AdminCosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics/' + category + '/' + subcategory, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.get<any>('/products/' + category + '/' + subcategory, requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError)
     );
   }
 
-  postCosmetic(cosmetic: any): Observable<any> {
+  postProduct(product: any): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json;charset=utf-8'
@@ -85,34 +85,34 @@ export class AdminCosmeticService {
       responseType: 'text',
     };
     return this._http
-      .post<any>('/cosmetics', JSON.stringify(cosmetic), requestOptions)
+      .post<any>('/products', JSON.stringify(product), requestOptions)
       .pipe(
-        map((res) => JSON.parse(res) as Cosmetics),
+        map((res) => JSON.parse(res) as Products),
         retry(3),
         catchError(this.handleError)
       );
   }
 
-  putCosmetic(cosmetic: any): Observable<any> {
+  putProduct(product: any): Observable<any> {
     const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8")
     const requestOptions: Object = {
       headers: headers,
       responseType: "text"
     }
-    return this._http.put<any>("/cosmetics", JSON.stringify(cosmetic), requestOptions).pipe(
-      map(res => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.put<any>("/products", JSON.stringify(product), requestOptions).pipe(
+      map(res => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError))
   }
 
-  deleteCosmetic(cosmeticId: string): Observable<any> {
+  deleteProduct(ProductId: string): Observable<any> {
     const headers = new HttpHeaders().set("Content-Type", "application/json;charset=utf-8")
     const requestOptions: Object = {
       headers: headers,
       responseType: "text"
     }
-    return this._http.delete<any>("/cosmetics/" + cosmeticId, requestOptions).pipe(
-      map(res => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.delete<any>("/products/" + ProductId, requestOptions).pipe(
+      map(res => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError))
   }

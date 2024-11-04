@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
+import { AdminProductService } from 'src/app/services/admin-product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -8,20 +8,20 @@ import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
-  cosmetic: any;
+  product: any;
   errMessage: string = '';
-  constructor(public _service: AdminCosmeticService, private router: Router, private activateRoute: ActivatedRoute) {
+  constructor(public _service: AdminProductService, private router: Router, private activateRoute: ActivatedRoute) {
     activateRoute.paramMap.subscribe((param) => {
       let id = param.get('id');
       if (id != null) {
-        this.searchCosmetic(id);
+        this.searchProduct(id);
       }
     });
   }
-  searchCosmetic(cosmeticId: string) {
-    this._service.getCosmetic(cosmeticId).subscribe({
+  searchProduct(productId: string) {
+    this._service.getProduct(productId).subscribe({
       next: (data) => {
-        this.cosmetic = data;
+        this.product = data;
       },
       error: (err) => {
         this.errMessage = err;

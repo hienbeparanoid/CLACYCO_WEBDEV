@@ -9,18 +9,18 @@
             <div class="content__item">
                 <div class="item__img">
                     <div class="item__img--main">
-                        <img src="{{cosmetic.Image}}">
+                        <img src="{{product.Image}}">
                     </div>
                 </div>
                 <div class="item__infor">
-                    <p class="item__infor--title">{{cosmetic.Name}}</p>
+                    <p class="item__infor--title">{{product.Name}}</p>
                     <hr>
-                    <h3 class="item__infor--price">{{cosmetic.Price}} $</h3>
-                    <p> <b> Origin:</b>{{cosmetic.Origin}}</p>
+                    <h3 class="item__infor--price">{{product.Price}} $</h3>
+                    <p> <b> Origin:</b>{{product.Origin}}</p>
                     <p> <b> Product Description: </b> </p>
-                    <p>{{cosmetic.Description}}</p>
+                    <p>{{product.Description}}</p>
                     <p><b> Storage instruction: </b></p>
-                    <p>{{cosmetic.Store}}</p>
+                    <p>{{product.Store}}</p>
                     <div class="amount">
                         <p style="display: inline-block;">
                             <b>Quantity</b>
@@ -35,7 +35,7 @@
                     </div>
                     <hr style="height: auto; margin-bottom: 20px;">
                     <div class="item--button">
-                        <button class="add--cart" (click)="addToCart(cosmetic)">Add to cart</button>
+                        <button class="add--cart" (click)="addToCart(product)">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -43,16 +43,16 @@
 
         <p style="font-weight: bold; font-size: 30px; color: BLACK; text-align: center;">You might also like</p>
         <div class="danhmucproduct">
-            <div class="product" *ngFor="let same_cosmetic of cosmetics.slice(0,5)">
+            <div class="product" *ngFor="let same_product of products.slice(0,5)">
                 <div class="product-item">
-                    <div (click)="viewCosmeticDetail(same_cosmetic)">
+                    <div (click)="viewProductDetail(same_product)">
                         <div class="product-item--img">
-                            <img src="{{ same_cosmetic.Image }}" style="width: 180px;">
+                            <img src="{{ same_product.Image }}" style="width: 180px;">
                         </div>
-                        <p class="product-item--info">{{ same_cosmetic.Name }}</p>
-                        <p class="product-item--price" style="    font-size: 32px;">{{ same_cosmetic.Price }} $</p>
+                        <p class="product-item--info">{{ same_product.Name }}</p>
+                        <p class="product-item--price" style="    font-size: 32px;">{{ same_product.Price }} $</p>
                     </div>
-                    <button class="product-item--add" (click)="addToCartSame(same_cosmetic)">Add to cart</button>
+                    <button class="product-item--add" (click)="addToCartSame(same_product)">Add to cart</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel } from '@angular/forms';
-import { Cosmetics } from 'src/app/interfaces/cosmetics';
+import { Products } from 'src/app/interfaces/products';
 import { AdminCategoryService } from 'src/app/services/admin-category.service';
 import { Category } from 'src/app/interfaces/category';
 

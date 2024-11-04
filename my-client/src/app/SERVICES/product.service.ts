@@ -1,15 +1,15 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, retry, throwError } from 'rxjs';
-import { Cosmetics } from '../Interfaces/Cosmetic';
+import { Products } from '../Interfaces/Products';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CosmeticService {
+export class ProductsService {
   [x: string]: any;
   constructor(private _http: HttpClient) {}
-  getCosmetics(): Observable<any> {
+  getProducts(): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -18,8 +18,8 @@ export class CosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics', requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.get<any>('/products', requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError)
     );
@@ -28,7 +28,7 @@ export class CosmeticService {
     return throwError(() => new Error(error.message));
   }
 
-  getCosmetic(cosmeticId: string): Observable<any> {
+  getProduct(ProductId: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -38,15 +38,15 @@ export class CosmeticService {
       responseType: 'text',
     };
     return this._http
-      .get<any>('/cosmetics/detail/' + cosmeticId, requestOptions)
+      .get<any>('/productss/detail/' + ProductId, requestOptions)
       .pipe(
-        map((res) => JSON.parse(res) as Cosmetics),
+        map((res) => JSON.parse(res) as Products),
         retry(3),
         catchError(this.handleError)
       );
   }
 
-  getCosmeticCategory(category: string): Observable<any> {
+  getProductCategory(category: string): Observable<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain;charset=utf8'
@@ -55,8 +55,8 @@ export class CosmeticService {
       headers: headers,
       responseType: 'text',
     };
-    return this._http.get<any>('/cosmetics/' + category, requestOptions).pipe(
-      map((res) => JSON.parse(res) as Array<Cosmetics>),
+    return this._http.get<any>('/products/' + category, requestOptions).pipe(
+      map((res) => JSON.parse(res) as Array<Products>),
       retry(3),
       catchError(this.handleError)
     );

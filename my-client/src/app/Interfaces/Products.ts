@@ -1,4 +1,4 @@
-export class Cosmetics {
+export class Products {
   constructor(
     public _id: any = null,
     public Name: string = '',

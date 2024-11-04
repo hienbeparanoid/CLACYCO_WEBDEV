@@ -27,7 +27,7 @@ export class AdminCaterogyComponent {
   ) {
     this._service.getCategories().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
+        // Lấy danh sách các Products
         this.categories = data;
       },
       error: (err) => {

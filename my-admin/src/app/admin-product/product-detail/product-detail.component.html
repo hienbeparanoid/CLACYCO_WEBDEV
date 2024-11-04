@@ -30,30 +30,30 @@
       <div class="page-body-content">
         <div class="content_left">
           <label>Image:
-            <img src="{{cosmetic.Image}}" alt="" width="160"><br>
+            <img src="{{product.Image}}" alt="" width="160"><br>
           </label>
           <label for="name">Product's name:
             <div>
               <input type="text" class="form-control" name="name" id="name"
-                [(ngModel)]="cosmetic.Name" readonly />
+                [(ngModel)]="product.Name" readonly />
             </div>
           </label>
           <label for="category">Category:
             <div>
               <input type="text" class="form-control" name="category" id="category"
-                [(ngModel)]="cosmetic.Category" readonly />
+                [(ngModel)]="product.Category" readonly />
             </div>
           </label>
           <label for="price">Price:
             <div>
               <input type="text" class="form-control" name="price" id="price"
-                [(ngModel)]="cosmetic.Price" readonly />
+                [(ngModel)]="product.Price" readonly />
             </div>
           </label>
           <label for="stock">Inventory:
             <div>
               <input type="text" class="form-control" name="stock" id="stock"
-                [(ngModel)]="cosmetic.Quantity" readonly />
+                [(ngModel)]="product.Quantity" readonly />
             </div>
           </label>
         </div>
@@ -61,25 +61,25 @@
           <label for="useCustomize">Customizable:
             <div>
               <input type="text" class="form-control" name="customizable" id="customizable"
-                [(ngModel)]="cosmetic.Customizable" readonly />
+                [(ngModel)]="product.Customizable" readonly />
             </div>
           </label>
           <label for="originEdit">Origin:
             <div>
               <input type="text" class="form-control" name="originEdit" id="originEdit"
-                [(ngModel)]="cosmetic.Origin" readonly/>
+                [(ngModel)]="product.Origin" readonly/>
             </div>
           </label>
           <label for="description">Description:
             <div>
               <textarea type="text" class="form-control" name="description" id="description"
-                [(ngModel)]="cosmetic.Description" readonly></textarea>
+                [(ngModel)]="product.Description" readonly></textarea>
             </div>
           </label>
           <label for="preserveEdit">Storage Instructions:
             <div>
               <textarea type="text" class="form-control" #name="ngModel" name="preserveEdit" id="preserveEdit"
-                [(ngModel)]="cosmetic.Store">
+                [(ngModel)]="product.Store">
               </textarea>
             </div>
           </label>

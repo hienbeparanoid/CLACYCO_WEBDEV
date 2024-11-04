@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { CosmeticService } from '../SERVICES/cosmetics.service';
+import { ProductsService } from '../SERVICES/products.service';
 import { AuthService } from '../SERVICES/auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { AuthService } from '../SERVICES/auth.service';
 export class CartComponent implements OnInit {
   cartItems: any;
   errMessage: string = '';
-  cosmetics: any;
+  products: any;
   categories: any[] | undefined;
   display:boolean = true;
   quantityItem: number = 0;
@@ -30,14 +30,14 @@ export class CartComponent implements OnInit {
 
   constructor(
     private activateRoute: ActivatedRoute,
-    private _service: CosmeticService,
+    private _service: ProductsService,
     private router: Router,
     private _authService: AuthService
   ) {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data:any) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err: string) => {
         this.errMessage = err;
@@ -59,7 +59,7 @@ export class CartComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  viewCosmeticDetail(f: any) {
+  viewProductsDetail(f: any) {
     this.router.navigate(['app-product-detail', f._id]).then(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });
@@ -81,10 +81,10 @@ export class CartComponent implements OnInit {
     this.preprice = this.prePrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 });
   }
   
-  increase(cosmetic: any) {
+  increase(product: any) {
     console.log("increase called");
-    cosmetic.quantity++;
-    this._service.updateQuantityCart(cosmetic).subscribe(
+    product.quantity++;
+    this._service.updateQuantityCart(product).subscribe(
       (response: any) => {
         console.log(response);
         // Cập nhật số lượng sản phẩm thành công
@@ -92,11 +92,11 @@ export class CartComponent implements OnInit {
     );
   }
 
-  decrease(cosmetic: any) {
+  decrease(product: any) {
     console.log("decrease called");
-    if (cosmetic.quantity > 1) {
-      cosmetic.quantity--;
-      this._service.updateQuantityCart(cosmetic).subscribe(
+    if (product.quantity > 1) {
+      product.quantity--;
+      this._service.updateQuantityCart(product).subscribe(
         (response: any) => {
           console.log(response);
           // Cập nhật số lượng sản phẩm thành công

@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, Renderer2, HostListener, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Cosmetics } from '../Interfaces/Cosmetic';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
+import { Products } from '../Interfaces/Products';
+import { ProductsService } from '../SERVICES/product.service';
 import { CategoryService } from '../SERVICES/category.service';
 
 @Component({
@@ -13,15 +13,15 @@ export class CustomizationComponent implements OnInit {
   @ViewChild('scrollArrow') scrollArrow!: ElementRef;
   selectedCategory: string = '';
   categories: any[] | undefined;
-  cosmetics: any;
-  cosmetic = new Cosmetics();
+  products: any;
+  product = new Products();
   errMessage: string = '';
   uploadNotification: string = '';
   specialDetails: string = '';
 
 
   constructor(
-    public _service: CosmeticService,
+    public _service: ProductsService,
     public _fs: CategoryService,
     private router: Router,
     private renderer: Renderer2,
@@ -42,9 +42,9 @@ export class CustomizationComponent implements OnInit {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;

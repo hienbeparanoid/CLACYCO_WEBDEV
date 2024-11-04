@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2, ElementRef, ViewChild, AfterViewInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
+import { ProductsService } from '../SERVICES/product.service';
 
 @Component({
   selector: 'app-home',
@@ -14,26 +14,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   category: string = '';
   categories: any[] | undefined;
-  cosmetics: any[] | undefined;
+  products: any[] | undefined;
   quantity: number = 1;
-  randomFeaturedCosmetics: any[] | undefined;
-  cosmeticCategory: any;
-  cosmetic: any;
+  randomFeaturedProducts: any[] | undefined;
+  productCategory: any;
+  product: any;
   errMessage: string = '';
   displayProduct: boolean = true;
 
   constructor(
-    public _service: CosmeticService,
+    public _service: ProductsService,
     private router: Router,
     private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
-    const numRandomCosmetics = 5;
-    this._service.getCosmetics().subscribe({
+    const numRandomProducts = 5;
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
-        this.randomFeaturedCosmetics = this.getRandomCosmetics(numRandomCosmetics, data);
+        this.products = data;
+        this.randomFeaturedProducts = this.getRandomProducts(numRandomProducts, data);
       },
       error: (err) => {
         console.error(err);
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     type(); // Bắt đầu typing ngay lập tức
   }
 
-  viewCosmeticDetail(f: any) {
+  viewProductDetail(f: any) {
     this.router.navigate(['app-product-detail', f._id]).then(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });
@@ -125,16 +125,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getRandomCosmetics(numRandomCosmetics: number, sourceCosmetics: any[] | undefined = this.cosmetics) {
-    const totalCosmetics = sourceCosmetics?.length ?? 0;
+  getRandomProducts(numRandomProducts: number, sourceProducts: any[] | undefined = this.products) {
+    const totalProducts = sourceProducts?.length ?? 0;
     const randomIndices: number[] = [];
-    while (randomIndices.length < numRandomCosmetics && totalCosmetics > 0) {
-      const randomIndex = Math.floor(Math.random() * totalCosmetics);
+    while (randomIndices.length < numRandomProducts && totalProducts > 0) {
+      const randomIndex = Math.floor(Math.random() * totalProducts);
       if (!randomIndices.includes(randomIndex)) {
         randomIndices.push(randomIndex);
       }
     }
-    return randomIndices.map(index => sourceCosmetics?.[index]);
+    return randomIndices.map(index => sourceProducts?.[index]);
   }
 
   browseProduct() {

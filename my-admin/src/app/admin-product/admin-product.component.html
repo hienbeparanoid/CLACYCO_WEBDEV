@@ -18,7 +18,7 @@
     <div class="page-title">
       <div>
         <strong>Products</strong>
-        <button id="add" (click)="addCosmetic()">Add products
+        <button id="add" (click)="addProduct()">Add products
         </button>
       </div>
       <div class="page-search">
@@ -39,23 +39,23 @@
             <th></th>
           </thead>
           <tbody class="table_content">
-            <tr class="table_data" *ngFor="let cosmetic of cosmetics, index as i">
+            <tr class="table_data" *ngFor="let product of products, index as i">
               <td>{{i+1}}</td>
               <td class="pro_image">
-                <img src="{{cosmetic.Image}}"/>
+                <img src="{{product.Image}}"/>
               </td>
-              <td>{{cosmetic.Name}}</td>
-              <td>{{cosmetic.Category}}</td>
-              <td>{{cosmetic.Quantity}}</td>
-              <td>{{cosmetic.Price}} $</td>
+              <td>{{product.Name}}</td>
+              <td>{{product.Category}}</td>
+              <td>{{product.Quantity}}</td>
+              <td>{{product.Price}} $</td>
               <td class="pro_action">
-                <button id="visual" (click)="viewDetailCosmetic(cosmetic)">
+                <button id="visual" (click)="viewDetailProduct(product)">
                   <span class="material-icons-outlined">visibility</span>
                 </button>
                 <button id="visual">
-                  <span class="material-icons-outlined" (click)="updateCosmetic(cosmetic)">edit</span>
+                  <span class="material-icons-outlined" (click)="updateProduct(product)">edit</span>
                 </button>
-                <button id="delete" (click)="deleteCosmetic(cosmetic._id)">
+                <button id="delete" (click)="deleteProduct(product._id)">
                   <span class="material-icons-outlined">delete</span>
                 </button>
               </td>

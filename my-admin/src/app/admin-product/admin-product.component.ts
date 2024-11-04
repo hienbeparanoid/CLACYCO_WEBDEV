@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminCosmeticService } from '../services/admin-cosmetic.service';
+import { AdminProductService } from '../services/admin-product.service';
 import { PaginatePipe } from 'ngx-pagination';
 
 @Component({
@@ -11,13 +11,13 @@ import { PaginatePipe } from 'ngx-pagination';
 
 export class AdminProductComponent {
   [x: string]: any;
-  cosmetics: any;
+  products: any;
   errMessage: string = '';
-  constructor(public _service: AdminCosmeticService, private router: Router, private activateRoute: ActivatedRoute) {
-    this._service.getCosmetics().subscribe({
+  constructor(public _service: AdminProductService, private router: Router, private activateRoute: ActivatedRoute) {
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -25,21 +25,21 @@ export class AdminProductComponent {
     });
   }
 
-  addCosmetic() {
+  addProduct() {
     this.router.navigate(['add-product']);
   }
 
-  viewDetailCosmetic(f: any) {
+  viewDetailProduct(f: any) {
     this.router.navigate(['product-detail', f._id]);
   }
 
-  updateCosmetic(f: any) {
+  updateProduct(f: any) {
     this.router.navigate(['product-detail/edit', f._id]);
   }
 
-  deleteCosmetic(_id: any) {
-    if (window.confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
-      this._service.deleteCosmetic(_id).subscribe({
+  deleteProduct(_id: any) {
+    if (window.confirm('Are you sure to delete this product?')) {
+      this._service.deleteProduct(_id).subscribe({
         next: () => {
           // Reload the page after deleting the product
           location.reload();

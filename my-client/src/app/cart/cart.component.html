@@ -99,16 +99,16 @@
 
   <p class="shopping__orther-product--header">You might also like</p>
   <div class="danhmucproduct">
-    <div class="product" *ngFor="let same_cosmetic of cosmetics.slice(0,5)">
+    <div class="product" *ngFor="let same_product of products.slice(0,5)">
       <div class="product-item">
-        <div (click)="viewCosmeticDetail(same_cosmetic)">
+        <div (click)="viewProductsDetail(same_product)">
           <div class="product-item--img">
-            <img src="{{ same_cosmetic.Image }}" style="width: 180px;">
+            <img src="{{ same_product.Image }}" style="width: 180px;">
           </div>
-          <p class="product-item--info">{{ same_cosmetic.Name }}</p>
-          <p class="product-item--price">{{ same_cosmetic.Price }} $</p>
+          <p class="product-item--info">{{ same_product.Name }}</p>
+          <p class="product-item--price">{{ same_product.Price }} $</p>
         </div>
-        <button class="orther__product-item--add" (click)="addToCart(same_cosmetic)">
+        <button class="orther__product-item--add" (click)="addToCart(same_product)">
           Add to cart
         </button>
       </div>

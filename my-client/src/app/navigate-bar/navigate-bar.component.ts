@@ -3,8 +3,8 @@ import { ChangeDetectorRef, Component, OnInit, HostListener } from '@angular/cor
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../SERVICES/auth.service';
 import { SearchService } from '../SERVICES/search.service';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
-import { Cosmetics } from '../Interfaces/Cosmetic';
+import { ProductsService } from '../SERVICES/product.service';
+import { Products } from '../Interfaces/Products';
 
 @Component({
   selector: 'app-navigate-bar',
@@ -16,7 +16,7 @@ export class NavigateBarComponent implements OnInit {
   currentUser: any;
   category: string = '';
   categories: any[] | undefined;
-  cosmetics: any;
+  products: any;
   cartItems: any[] = [];
   quantityItem: number = 0;
   displayItem: boolean = true;
@@ -28,7 +28,7 @@ export class NavigateBarComponent implements OnInit {
   constructor(
     private searchService: SearchService,
     private _http: HttpClient,
-    public _service: CosmeticService,
+    public _service: ProductsService,
     private router: Router,
     private activateRoute: ActivatedRoute,
     private cd: ChangeDetectorRef,
@@ -73,9 +73,9 @@ export class NavigateBarComponent implements OnInit {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
         this.categories = this.extractCategories(data);
       },
       error: (err) => {

@@ -27,7 +27,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 client = new MongoClient("mongodb://127.0.0.1:27017");
 client.connect();
 database = client.db("ClayCoDatabase");
-cosmeticCollection = database.collection("CosmeticData");
+productsCollection = database.collection("ProductsData");
 customerCollection = database.collection("CustomerData");
 orderCollection = database.collection("OrderData");
 categoryCollection = database.collection("CategoryData")
@@ -35,8 +35,8 @@ accountCollection = database.collection("AccountCustomerData");
 deliveryCustomerCollection = database.collection("DeliveryCustomerData");
 
 // Thông tin của Sản phẩm
-app.get("/cosmetics", cors(), async (req, res) => {
-  const result = await cosmeticCollection.find({}).toArray();
+app.get("/products", cors(), async (req, res) => {
+  const result = await productsCollection.find({}).toArray();
   result.sort((a, b) => {
     const dateA = new Date(a.Create_date);
     const dateB = new Date(b.Create_date);
@@ -45,30 +45,30 @@ app.get("/cosmetics", cors(), async (req, res) => {
   res.send(result);
 });
 
-app.get("/cosmetics/detail/:id", cors(), async (req, res) => {
+app.get("/products/detail/:id", cors(), async (req, res) => {
   var o_id = new ObjectId(req.params["id"]);
-  const result = await cosmeticCollection.find({ _id: o_id }).toArray();
+  const result = await productsCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
 });
 
-app.get("/cosmetics/:category", cors(), async (req, res) => {
+app.get("/products/:category", cors(), async (req, res) => {
   const category = req.params["category"];
-  const result = await cosmeticCollection
+  const result = await productsCollection
     .find({ Category: category })
     .toArray();
   res.send(result);
 });
 
-app.post("/cosmetics", cors(), async (req, res) => {
+app.post("/products", cors(), async (req, res) => {
   //put json into database
-  await cosmeticCollection.insertOne(req.body);
+  await productsCollection.insertOne(req.body);
   //send message to client(send all database to client)
   res.send(req.body);
 });
 
-app.put("/cosmetics", cors(), async (req, res) => {
-  //update json Cosmetic into database
-  await cosmeticCollection.updateOne(
+app.put("/products", cors(), async (req, res) => {
+  //update json products into database
+  await productsCollection.updateOne(
     { _id: new ObjectId(req.body._id) }, //condition for update
     {
       $set: {
@@ -77,37 +77,37 @@ app.put("/cosmetics", cors(), async (req, res) => {
         Price: req.body.Price,
         Image: req.body.Image,
         Description: req.body.Description,
-        Ingredients: req.body.Ingredients,
+        Origin: req.body.Origin,
         Uses: req.body.Uses,
+        Customizable: req.body.Customazable,
         Store: req.body.Store,
-        Warnings: req.body.Warnings,
         Category: req.body.Category,
         Quantity: req.body.Quantity
       },
     }
   );
-  //send Cosmetic after updating
+  //send products after updating
   var o_id = new ObjectId(req.body._id);
-  const result = await cosmeticCollection.find({ _id: o_id }).toArray();
+  const result = await productsCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
 });
 
-app.delete("/cosmetics/:id", cors(), async (req, res) => {
-  //find detail Cosmetic with id
+app.delete("/products/:id", cors(), async (req, res) => {
+  //find detail products with id
   var o_id = new ObjectId(req.params["id"]);
-  const result = await cosmeticCollection.find({ _id: o_id }).toArray();
-  //update json Cosmetic into database
-  await cosmeticCollection.deleteOne({ _id: o_id });
-  //send Cosmetic after remove
+  const result = await productsCollection.find({ _id: o_id }).toArray();
+  //update json products into database
+  await productsCollection.deleteOne({ _id: o_id });
+  //send products after remove
   res.send(result[0]);
 });
 
 app.get('/search', cors(), async (req, res) => {
   const keyword = req.query.keyword;
-  const cosmeticCollection = database.collection('CosmeticData');
+  const productsCollection = database.collection('ProductsData');
   const query = { Name: { $regex: keyword, $options: 'i' } };
-  const cosmetics = await cosmeticCollection.find(query).toArray();
-  res.send(cosmetics);
+  const products = await productsCollection.find(query).toArray();
+  res.send(products);
 });
 
 // Lấy thông tin Category
@@ -133,7 +133,7 @@ app.get("/categories/category/:name", cors(), async (req, res) => {
 });
 
 app.put("/categories", cors(), async (req, res) => {
-  //update json Cosmetic into database
+  //update json products into database
   await categoryCollection.updateOne(
     { _id: new ObjectId(req.body._id) }, //condition for update
     {
@@ -141,7 +141,6 @@ app.put("/categories", cors(), async (req, res) => {
         //Field for updating  
         Name: req.body.Name,
         Description: req.body.Description,
-        Image: req.body.Image
       },
     }
   );
@@ -184,19 +183,19 @@ app.get("/contact", cors(), (req, res) => {
 })
 
 app.post("/cart/", cors(), (req, res) => {
-  const cosmetic = req.body
+  const product = req.body
   if (req.session.carts == null) {
     req.session.carts = []
   }
-  const existingCosmetic = req.session.carts.find((c) => c._id === cosmetic._id);
+  const existingproduct = req.session.carts.find((c) => c._id === product._id);
 
-  if (existingCosmetic) {
+  if (existingproduct) {
     // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng sản phẩm của sản phẩm đó
-    existingCosmetic.quantity += cosmetic.quantity;
+    existingproduct.quantity += product.quantity;
   } else {
-    req.session.carts.push(cosmetic)
+    req.session.carts.push(product)
   }
-  res.send(cosmetic)
+  res.send(product)
 })
 app.get("/cart", cors(), (req, res) => {
   res.send(req.session.carts)
@@ -361,13 +360,13 @@ app.post('/login', cors(), async (req, res) => {
   const userCollection = database.collection('AccountCustomerData');
   const user = await userCollection.findOne({ phonenumber });
   if (user == null) {
-    res.status(401).send({ message: 'Tên đăng nhập không tồn tại' });
+    res.status(401).send({ message: 'Unexisted username' });
   } else {
     const hash = crypto.pbkdf2Sync(password, user.salt, 1000, 64, `sha512`).toString(`hex`);
     if (user.password === hash) {
       res.send(user);
     } else {
-      res.status(401).send({ message: 'Mật khẩu không đúng' });
+      res.status(401).send({ message: 'False password' });
     }
   }
 });
@@ -378,16 +377,16 @@ app.put('/change-password', cors(), async (req, res) => {
   const userCollection = database.collection('AccountCustomerData');
   const user = await userCollection.findOne({ phonenumber });
   if (user == null) {
-    res.status(401).send({ message: 'Tên đăng nhập không tồn tại' });
+    res.status(401).send({ message: 'Unexisted username' });
   } else {
     const oldHash = crypto.pbkdf2Sync(oldPassword, user.salt, 1000, 64, `sha512`).toString(`hex`);
     if (user.password !== oldHash) {
-      res.status(401).send({ message: 'Mật khẩu cũ không đúng' });
+      res.status(401).send({ message: 'False old password' });
     } else {
       const newSalt = crypto.randomBytes(16).toString(`hex`);
       const newHash = crypto.pbkdf2Sync(newPassword, newSalt, 1000, 64, `sha512`).toString(`hex`);
       await userCollection.updateOne({ phonenumber }, { $set: { password: newHash, salt: newSalt } });
-      res.send({ message: 'Đổi mật khẩu thành công' });
+      res.send({ message: 'Change password successfully' });
     }
   }
 });
@@ -427,7 +426,7 @@ app.put("/orderConfirm/:id", cors(), async (req, res) => {
     {
       $set: {
         //Field for updating
-        Status: "Đã xác nhận"
+        Status: "Confirmed"
       },
     }
   );
@@ -461,8 +460,8 @@ app.get("/orders/customer/:name", cors(), async (req, res) => {
 
 app.get('/search', cors(), async (req, res) => {
   const keyword = req.query.keyword;
-  const cosmeticCollection = database.collection('CosmeticData');
+  const productsCollection = database.collection('ProductsData');
   const query = { Name: { $regex: keyword, $options: 'i' } };
-  const cosmetics = await cosmeticCollection.find(query).toArray();
-  res.send(cosmetics);
+  const products= await productsCollection.find(query).toArray();
+  res.send(products);
 });

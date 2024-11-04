@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cosmetics } from 'src/app/interfaces/cosmetics';
+import { Products } from 'src/app/interfaces/products';
 import { AdminCategoryService } from 'src/app/services/admin-category.service';
-import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
+import { AdminProductService } from 'src/app/services/admin-product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -10,21 +10,21 @@ import { AdminCosmeticService } from 'src/app/services/admin-cosmetic.service';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
-  cosmetics: any;
-  cosmetic = new Cosmetics();
+  products: any;
+  product = new Products();
   categories: any;
   categories_test: any;
   errMessage: string = '';
 
-  constructor(public _service: AdminCosmeticService,
+  constructor(public _service: AdminProductService,
               public _fs: AdminCategoryService,
               private router: Router, 
               private activatedRoute: ActivatedRoute) 
   {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -41,27 +41,27 @@ export class AddProductComponent {
     });
   }
 
-  public setCosmetic(f: Cosmetics) {
-    this.cosmetic = f;
+  public setProduct(f: Products) {
+    this.product = f;
   }
   
-  onFileSelected(event: any, cosmetic: Cosmetics) {
+  onFileSelected(event: any, product: Products) {
     let file = event.target.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      cosmetic.Image = reader.result!.toString();
+      product.Image = reader.result!.toString();
     };
     reader.onerror = (error) => {
       console.log('Error: ', error);
     };
   }
 
-  postCosmetic() {
-    //this.cosmetic.Create_date= ${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()};
-    this._service.postCosmetic(this.cosmetic).subscribe({
+  postProduct() {
+    //this.product.Create_date= ${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()};
+    this._service.postProduct(this.product).subscribe({
       next: (data) => {
-        this.cosmetic = data;
+        this.product = data;
         alert('Add product successfully!');
         this.goBack();
       },

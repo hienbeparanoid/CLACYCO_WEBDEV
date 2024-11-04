@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
+import { ProductsService } from '../SERVICES/product.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +10,7 @@ import { CosmeticService } from '../SERVICES/cosmetic.service';
 export class FooterComponent {
   category: string = '';
   categories: any[] | undefined;
-  cosmetics: any;
+  products: any;
   cartItems: any[] = [];
   quantityItem: number = 0;
   displayItem: boolean = true;
@@ -22,7 +22,7 @@ export class FooterComponent {
   showError: boolean = false;  // Controls the display of the error message
 
   constructor(
-    public _service: CosmeticService,
+    public _service: ProductsService,
     private router: Router,
     private activateRoute: ActivatedRoute
   ) {
@@ -94,9 +94,9 @@ export class FooterComponent {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
         this.categories = this.extractCategories(data);
       },
       error: (err) => {

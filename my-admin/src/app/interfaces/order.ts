@@ -16,7 +16,7 @@ export class Order {
     public DiscountPrice: number = 0,
     //public CustomerID: number = 0,
     //public RecipientAddressID: number = 0,
-    public OrderCosmetic: {
+    public OrderProduct: {
       _id: any,
       Name: string,
       Price: string,

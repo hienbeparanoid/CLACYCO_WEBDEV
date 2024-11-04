@@ -1,4 +1,4 @@
-export class Cosmetics{
+export class Products{
     [x: string]: any;
     constructor(
       public _id: any = null,

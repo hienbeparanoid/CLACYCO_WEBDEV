@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
-import { Cosmetics } from '../Interfaces/Cosmetic';
+import { ProductsService } from '../SERVICES/product.service';
+import { Products } from '../Interfaces/Products';
 import { AuthService } from '../SERVICES/auth.service';
 
 @Component({
@@ -11,9 +11,9 @@ import { AuthService } from '../SERVICES/auth.service';
 })
 export class ProductDetailComponent {
   quantity: number = 1;
-  cosmetic: any;
+  product: any;
   errMessage: string = '';
-  cosmetics: any;
+  products: any;
   currentUser: any;
   isLogin: boolean = false;
   categories: any[] | undefined;
@@ -21,21 +21,21 @@ export class ProductDetailComponent {
   declare window: Window & typeof globalThis;
   constructor(
     private activateRoute: ActivatedRoute,
-    private _service: CosmeticService,
+    private _service: ProductsService,
     private router: Router,
     private _authService: AuthService
   ) {
     activateRoute.paramMap.subscribe((param) => {
-      let cosmeticId = param.get('id');
-      if (cosmeticId != null) {
-        this.searchCosmetic(cosmeticId);
+      let productId = param.get('id');
+      if (productId != null) {
+        this.searchProduct(productId);
       }
     });
 
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        // Lấy danh sách các Cosmetics
-        this.cosmetics = data;
+        // Lấy danh sách các Products
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -46,9 +46,9 @@ export class ProductDetailComponent {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
         this.categories = this.extractCategories(data);
       },
       error: (err) => {
@@ -79,10 +79,10 @@ export class ProductDetailComponent {
     this.router.navigate(['/app-category', category])
   }
 
-  searchCosmetic(cosmeticId: string) {
-    this._service.getCosmetic(cosmeticId).subscribe({
+  searchProduct(productId: string) {
+    this._service.getProduct(productId).subscribe({
       next: (data) => {
-        this.cosmetic = data;
+        this.product = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -112,7 +112,7 @@ export class ProductDetailComponent {
 
   // Thêm vào giỏ hàng
   addToCart(cos: any): void {
-    this.cosmetic.quantity = this.quantity;
+    this.product.quantity = this.quantity;
     this._service.addToCart(cos).subscribe(
       (response) => {
         console.log(response);
@@ -129,7 +129,7 @@ export class ProductDetailComponent {
 
   // Add this method to handle subcategory change
   onSubCategoryChange(subCategory: string): void {
-    this.router.navigate(['/app-category', this.cosmetic.Category], { queryParams: { subCategory: subCategory } });
+    this.router.navigate(['/app-category', this.product.Category], { queryParams: { subCategory: subCategory } });
   }
 
   selectCategory(category: string): void {
@@ -137,7 +137,7 @@ export class ProductDetailComponent {
   }
 
   addToCartToBuy(cos: any): void {
-    this.cosmetic.quantity = this.quantity;
+    this.product.quantity = this.quantity;
     this._service.addToCart(cos).subscribe(
       response => {
         console.log(response);
@@ -166,7 +166,7 @@ export class ProductDetailComponent {
       }
     );
   }
-  viewCosmeticDetail(f: any) {
+  viewProductDetail(f: any) {
     this.router.navigate(['app-product-detail', f._id]).then(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });

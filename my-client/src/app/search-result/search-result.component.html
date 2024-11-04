@@ -1,15 +1,15 @@
 <h2 style="color: #8AA3A0;">We have found <b>{{resultCount}} </b> Product </h2>
 <div class="danhmucproduct">
-  <div class="product" *ngFor="let cosmetic of cosmetics">
+  <div class="product" *ngFor="let product of products">
     <div class="product-item">
-      <div (click)="viewCosmeticDetail(cosmetic)">
+      <div (click)="viewProductDetail(product)">
         <div class="product-item--img">
-          <img src="{{ cosmetic.Image }}" style="width: 180px;">
+          <img src="{{ product.Image }}" style="width: 180px;">
         </div>
-        <p class="product-item--info">{{ cosmetic.Name }}</p>
-        <p class="product-item--price">{{ cosmetic.Price }} $/p>
+        <p class="product-item--info">{{ product.Name }}</p>
+        <p class="product-item--price">{{ product.Price }} $/p>
       </div>
-      <button class="product-item--add" (click)="addToCart(cosmetic)">
+      <button class="product-item--add" (click)="addToCart(product)">
         Add to cart
       </button>
     </div>

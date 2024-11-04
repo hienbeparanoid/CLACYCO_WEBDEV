@@ -31,7 +31,7 @@
   <a class="bold" style="color: black; margin-top:20px">CLAYCO PRODUCTS</a>
   <a class="button" id="product">
     <a routerLink="/app-category">
-      <button type="submit" (click)="addToCart(cosmetic)">View all</button>
+      <button type="submit" (click)="addToCart(product)">View all</button>
     </a>
   </a>
   <br />
@@ -40,16 +40,16 @@
 <!--SECTION 4-->
 <p style="font-weight: bold; font-size: 30px; color: BLACK; text-align: center;">TOP-SELLER PRODUCTS</p>
 <div class="danhmucproduct">
-  <div class="product" *ngFor="let cosmetic of randomFeaturedCosmetics">
+  <div class="product" *ngFor="let product of randomFeaturedProducts">
     <div class="product-item">
-      <div (click)="viewCosmeticDetail(cosmetic)">
+      <div (click)="viewProductDetail(product)">
         <div class="product-item--img">
-          <img src="{{ cosmetic.Image }}" style="width: 180px;">
+          <img src="{{ product.Image }}" style="width: 180px;">
         </div>
-        <p class="product-item--info"  style="COLOR:BLACK;FONT-STYLE:UPPERCASE">{{ cosmetic.Name }}</p>
-        <p class="product-item--price">{{ cosmetic.Price }} $</p>
+        <p class="product-item--info"  style="COLOR:BLACK;FONT-STYLE:UPPERCASE">{{ product.Name }}</p>
+        <p class="product-item--price">{{ product.Price }} $</p>
       </div>
-      <button class="product-item--add" (click)="addToCart(cosmetic)">Add to cart</button>
+      <button class="product-item--add" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div>
   <br />

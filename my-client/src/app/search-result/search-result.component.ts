@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../SERVICES/search.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CosmeticService } from '../SERVICES/cosmetic.service';
+import { ProductsService } from '../SERVICES/product.service';
 import { CategoryService } from '../SERVICES/category.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CategoryService } from '../SERVICES/category.service';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-  cosmetics: any[] = [];
+  products: any[] = [];
   resultCount: any;
   errMessage: string = '';
   categories: any[] | undefined;
@@ -19,7 +19,7 @@ export class SearchResultComponent implements OnInit {
   constructor(
     private searchService: SearchService,
     private http: HttpClient,
-    public _service: CosmeticService,
+    public _service: ProductsService,
     public _fs: CategoryService,
     private router: Router,
     private route: ActivatedRoute
@@ -32,9 +32,9 @@ export class SearchResultComponent implements OnInit {
   loadSearchResults(): void {
     this.searchService.keyword$.subscribe(keyword => {
       if (keyword) {
-        this.http.get<any[]>(`http://localhost:3000/search?keyword=${keyword}`).subscribe(cosmetics => {
-          this.cosmetics = cosmetics;
-          this.resultCount = cosmetics.length;
+        this.http.get<any[]>(`http://localhost:3000/search?keyword=${keyword}`).subscribe(products => {
+          this.products = products;
+          this.resultCount = products.length;
         }, error => {
           console.error(error);
         });
@@ -43,9 +43,9 @@ export class SearchResultComponent implements OnInit {
   }
 
   loadData(): void {
-    this._service.getCosmetics().subscribe({
+    this._service.getProducts().subscribe({
       next: (data) => {
-        this.cosmetics = data;
+        this.products = data;
       },
       error: (err) => {
         this.errMessage = err;
@@ -62,8 +62,8 @@ export class SearchResultComponent implements OnInit {
     });
   }
 
-  viewCosmeticDetail(cosmetic: any) {
-    this.router.navigate(['app-product-detail', cosmetic._id]).then(() => {
+  viewProductDetail(product: any) {
+    this.router.navigate(['app-product-detail', product._id]).then(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });
   }
@@ -73,7 +73,7 @@ export class SearchResultComponent implements OnInit {
     this._service.addToCart(cos).subscribe(
       (response: any) => {
         
-        alert('Thêm sản phẩm vào giỏ hàng thành công');console.log(response);
+        alert('Add product to cart successfully');console.log(response);
         window.location.reload();
       },
       (error: any) => {

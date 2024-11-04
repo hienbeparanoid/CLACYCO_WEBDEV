@@ -24,26 +24,26 @@
     </div>
     <div class="page-body">
       <div class="product__action">
-        <span><button id="save" (click)="putCosmetic()">Save</button></span>
+        <span><button id="save" (click)="putProduct()">Save</button></span>
         <span><button id="back" (click)="goBack()">Cancel</button></span>
       </div>
       <p>Edit Product Details</p>
       <div class="page-body-content">
         <div class="content_left">
           <label for="myFile">Image:
-            <input type="file" class="file-input" (change)="onFileSelected($event, cosmetic)" #fileUpload name="image"
-              [(ngModel)]="cosmetic.Image"><br>
-            <img src="{{cosmetic.Image}}" alt="" width="109px"><br>
+            <input type="file" class="file-input" (change)="onFileSelected($event, product)" #fileUpload name="image"
+              [(ngModel)]="product.Image"><br>
+            <img src="{{product.Image}}" alt="" width="109px"><br>
           </label>
           <label for="nameEdit">Product's name:
             <div>
               <input type="text" class="form-control" name="nameEdit" id="nameEdit"
-                [(ngModel)]="cosmetic.Name" />
+                [(ngModel)]="product.Name" />
             </div>
           </label>
           <label for="categoryEdit">Category:
             <div>
-              <select name="category" id="categoryEdit" [(ngModel)]="cosmetic.Category">
+              <select name="category" id="categoryEdit" [(ngModel)]="product.Category">
                 <option *ngFor="let cat of categories" [value]="cat.Name">{{ cat.Name }}</option>
               </select>
             </div>
@@ -51,20 +51,20 @@
           <label for="priceEdit">Price:
             <div>
               <input type="text" class="form-control"  name="priceEdit" id="priceEdit"
-                [(ngModel)]="cosmetic.Price" />
+                [(ngModel)]="product.Price" />
             </div>
           </label>
           <label for="stockEdit">Inventory:
             <div>
               <input type="text" class="form-control" name="stockEdit" id="stockEdit"
-                [(ngModel)]="cosmetic.Quantity" />
+                [(ngModel)]="product.Quantity" />
             </div>
           </label>
         </div>
         <div class="content_right">
           <label for="useCustomize">Customizable:
             <div>
-              <select name="customizable" id="customizable" [(ngModel)]="cosmetic.Customizable">
+              <select name="customizable" id="customizable" [(ngModel)]="product.Customizable">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </select>
@@ -73,20 +73,20 @@
           <label for="originEdit">Origin:
             <div>
               <input type="text" class="form-control" #name="ngModel" name="originEdit" id="originEdit"
-                [(ngModel)]="cosmetic.Origin" />
+                [(ngModel)]="product.Origin" />
             </div>
           </label>
           <label for="descriptionEdit">Description:
             <div>
               <textarea type="text" class="form-control" #name="ngModel" name="descriptionEdit" id="descriptionEdit"
-                [(ngModel)]="cosmetic.Description">
+                [(ngModel)]="product.Description">
               </textarea>
             </div>
           </label>
           <label for="preserveEdit">Storage Instructions:
             <div>
               <textarea type="text" class="form-control" #name="ngModel" name="preserveEdit" id="preserveEdit"
-                [(ngModel)]="cosmetic.Store">
+                [(ngModel)]="product.Store">
               </textarea>
             </div>
           </label>

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { CosmeticService } from '../SERVICES/cosmetics.service';
+import { ProductsService } from '../SERVICES/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomersService } from '../SERVICES/customers.service';
 import { OrdersService } from '../SERVICES/orders.service';
@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
   deliveries: any;
   currentUser: any;
   constructor(
-    private _service: CosmeticService,
+    private _service: ProductsService,
     private _customerService: CustomersService,
     private _authService: AuthService,
     private _orderService: OrdersService,
@@ -129,7 +129,7 @@ export class PaymentComponent implements OnInit {
       this.order.PrePrice = this.totalPrice,
       this.order.DeliveryFee = this.deliveryFee,
       this.order.DiscountPrice = this.discountPrice,
-      this.order.OrderCosmetic = this.selectedItems
+      this.order.OrderProduct = this.selectedItems
     if (this.isChecked_COD) {
       this.order.PaymentMethod = 'Cash on Delivery';
     } else if (this.isChecked_Banking) {
