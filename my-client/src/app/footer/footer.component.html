@@ -5,16 +5,30 @@
       STAY UP TO DATE ABOUT OUR LATEST OFFERS
     </span>
   <div class="frame">
-      <form class="email-form">
-          <div class="input-container">
-              <input type="email" class="email-input" placeholder="Enter your email address" required>
-            </div>
-          <button type="submit" class="submit-button" (click)="subscribeToNewsletter()">
-            <span class="newsletter-text" style="font-size: 18px; font-weight: bold; cursor: pointer; color: #ffffff; background-color: black;">Subscribe to Newsletter</span>
-          </button>
-      </form>
+    <form class="email-form" (submit)="onSubmit()">
+      <div class="input-container">
+        <input
+          type="email"
+          id="emailInput"
+          class="email-input"
+          placeholder="Enter your email address"
+          [(ngModel)]="email"
+          name="email"
+          required
+          (focus)="hideErrorMessage()"
+        />
+        <span *ngIf="showError" class="error-message">Please fill in all required fields correctly.</span>
+      </div>
+      <button type="submit" class="submit-button">
+        <span
+          class="newsletter-text"
+          style="font-size: 18px; font-weight: bold; cursor: pointer; color: #ffffff; background-color: black;"
+        >
+          Subscribe to Newsletter
+        </span>
+      </button>
+    </form>         
   </div>
-  
 </div>
 
   <div class="footer__content">
