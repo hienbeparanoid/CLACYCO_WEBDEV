@@ -323,3 +323,9 @@
     line-height: 45px;
     text-align: left;
   }  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+  }

@@ -8,7 +8,6 @@ import { CosmeticService } from '../SERVICES/cosmetic.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  [x: string]: any;
   category: string = '';
   categories: any[] | undefined;
   cosmetics: any;
@@ -17,23 +16,67 @@ export class FooterComponent {
   displayItem: boolean = true;
   errMessage: string = '';
   Name: any;
+  isFixed = false;
+
+  email: string = '';  // For two-way binding with the input
+  showError: boolean = false;  // Controls the display of the error message
 
   constructor(
     public _service: CosmeticService,
     private router: Router,
-    private activateRoute: ActivatedRoute  ) {
+    private activateRoute: ActivatedRoute
+  ) {
     this.loadData();
   }
+
+  // Form submission handling
+  onSubmit(): void {
+    if (this.email && this.email.trim()) {
+      this.showError = false;  // Hide error message if email is valid
+      this.showSuccessMessage();
+      this.resetForm();
+    } else {
+      this.showErrorMessage();
+    }
+  }
+
+  // Display a success message as an alert on successful submission
+  showSuccessMessage(): void {
+    alert('Subscription successful! Thank you for subscribing to our newsletter.');
+  }
+
+  // Show error message if form is invalid
+  showErrorMessage(): void {
+    this.showError = true;  // Display inline error message
+  }
+
+  // Hide error message when the user focuses on the input field
+  hideErrorMessage(): void {
+    this.showError = false;
+  }
+
+  // Reset the form after successful submission
+  resetForm(): void {
+    this.email = '';  // Clear the email field
+    this.showError = false;  // Hide the error message
+  }
+
+  // Other methods (unrelated to form submission)
   navigateToCategory(category: string): void {
     this.router.navigate(['/app-category', category]).then(() => {
       this.scrollToTop();
     });
   }
+
   navigateToHome() {
     this.router.navigate(['/']).then(() => {
       const chungnhanAnToanSection = document.getElementById('chungnhanAnToan');
       if (chungnhanAnToanSection) {
-        chungnhanAnToanSection.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        chungnhanAnToanSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
       }
     });
   }
@@ -49,7 +92,7 @@ export class FooterComponent {
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  
+
   loadData(): void {
     this._service.getCosmetics().subscribe({
       next: (data) => {
@@ -85,15 +128,9 @@ export class FooterComponent {
       this.scrollToTop();
     });
   }
-  isFixed = false;
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     this.isFixed = window.scrollY > 320;
-  }
-
-  // Method to show subscription alert
-  subscribeToNewsletter(): void {
-    alert('Subscription successful! Thank you for subscribing to our newsletter.');
   }
 }
